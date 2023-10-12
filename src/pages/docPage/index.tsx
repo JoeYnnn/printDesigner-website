@@ -1,6 +1,9 @@
 import { Tree, Image } from 'antd';
 import styles from './index.less';
 import { useState } from 'react';
+import ReactMarkdown from 'react-markdown';
+// import md from '../../public/log.md';
+const md = require('../../public/log.md');
 
 const treeData = [
   {
@@ -167,6 +170,7 @@ export default function HomePage() {
       setSelectedKeys(info.node.key);
     }
   };
+  console.log(md);
 
   return (
     <div className={styles.indexContent}>
@@ -247,6 +251,7 @@ export default function HomePage() {
             ) : selectedKeys[0] == '1-0' ? (
               <div>
                 <h1>线条</h1>
+                <ReactMarkdown>{md}</ReactMarkdown>
               </div>
             ) : selectedKeys[0] == '2-0' ? (
               <div>

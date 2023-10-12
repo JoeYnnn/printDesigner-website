@@ -1,4 +1,4 @@
-import { Button, Image, Carousel } from 'antd';
+import { Button, Carousel } from 'antd';
 import styles from './index.less';
 import { history } from 'umi';
 
@@ -98,9 +98,6 @@ export default function HomePage(props: any) {
             </div>
           </div>
         </div>
-      </div>
-      <div className={styles.componentContent4}>
-        <div className={styles.content}>4</div>
       </div>
     </div>
   );

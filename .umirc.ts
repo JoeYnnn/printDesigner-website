@@ -9,4 +9,12 @@ export default defineConfig({
     { path: '/aboutPage', component: 'aboutPage' },
   ],
   npmClient: 'yarn',
+  chainWebpack(memo, { env, webpack }) {
+    memo.module
+      .rule('markdown')
+      .test(/\.md$/)
+      .use('markdown-loader')
+      .loader('markdown-loader')
+      .end();
+  },
 });
