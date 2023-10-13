@@ -1,18 +1,13 @@
-import { Button, Carousel } from 'antd';
+import { Button, Carousel, Image } from 'antd';
 import styles from './index.less';
 import { history } from 'umi';
 
-const contentStyle: React.CSSProperties = {
-  margin: 0,
-  height: '250px',
-  color: '#fff',
-  lineHeight: '250px',
-  textAlign: 'center',
-  background: '#364d79',
-};
-
 export default function HomePage(props: any) {
   const routeToDoc = () => {
+    history.push('/docPage');
+  };
+
+  const getMore = () => {
     history.push('/docPage');
   };
 
@@ -41,46 +36,62 @@ export default function HomePage(props: any) {
             </div>
           </div>
           <div className={styles.carousel}>
-            <Carousel autoplay>
+            <Carousel autoplay={true}>
               <div>
-                <h3 style={contentStyle}>1</h3>
+                <div className={styles.contentStyle}>
+                  <p className={styles.carouselTitle}>
+                    全场景浏览器解决方案，云端存储，异步渲染，性能更高
+                  </p>
+                  <div>
+                    <Image
+                      width={500}
+                      height={250}
+                      preview={false}
+                      src={require('../image/首页走马灯1.png')}
+                      style={{ position: 'relative', zIndex: 1 }}
+                    />
+                  </div>
+                </div>
               </div>
               <div>
-                <h3 style={contentStyle}>2</h3>
+                <div className={styles.contentStyle}>
+                  <p className={styles.carouselTitle}>
+                    医嘱打印续打，补打，套打...各种特殊打印，一步搞定
+                  </p>
+                  <div>
+                    <Image
+                      width={500}
+                      height={250}
+                      preview={false}
+                      src={require('../image/首页走马灯2.png')}
+                      style={{ position: 'relative', zIndex: 1 }}
+                    />
+                  </div>
+                </div>
               </div>
               <div>
-                <h3 style={contentStyle}>3</h3>
-              </div>
-              <div>
-                <h3 style={contentStyle}>4</h3>
+                <div className={styles.contentStyle}>
+                  <p className={styles.carouselTitle}>
+                    全部自研，专业团队7*24小时在线支持
+                  </p>
+                  <div>
+                    <Image
+                      width={500}
+                      height={250}
+                      preview={false}
+                      src={require('../image/首页走马灯3.png')}
+                      style={{ position: 'relative', zIndex: 1 }}
+                    />
+                  </div>
+                </div>
               </div>
             </Carousel>
           </div>
         </div>
       </div>
       <div className={styles.componentContent2}>
-        <div className={styles.content1}>
-          <div
-            style={{
-              fontSize: 36,
-              marginBottom: 24,
-              fontWeight: 'bold',
-              textAlign: 'center',
-            }}
-          >
-            核心功能
-          </div>
-          <div className={styles.partList}>
-            <div className={styles.part}>1</div>
-            <div className={styles.part}>2</div>
-            <div className={styles.part}>3</div>
-            <div className={styles.part}>4</div>
-          </div>
-        </div>
-      </div>
-      <div className={styles.componentContent3}>
-        <div className={styles.content}>
-          <div className={styles.content2}>
+        <div style={{ textAlign: 'center' }}>
+          <div className={styles.content1}>
             <div
               style={{
                 fontSize: 36,
@@ -89,13 +100,85 @@ export default function HomePage(props: any) {
                 textAlign: 'center',
               }}
             >
-              用例
+              核心功能
+            </div>
+            <div className={styles.partList}>
+              <div className={styles.part}>
+                <div>
+                  <Image
+                    width={220}
+                    height={300}
+                    src={require('../image/核心功能1.png')}
+                  />
+                </div>
+                <div className={styles.description}>
+                  业务数据绑定模版，数据驱动页面循环渲染
+                </div>
+              </div>
+              <div className={styles.part}>
+                <div>
+                  <Image
+                    width={220}
+                    height={300}
+                    src={require('../image/核心功能2.png')}
+                  />
+                </div>
+                <div className={styles.description}>
+                  医嘱打印续打，补打，套打等打印模式完全解决方案，专属区域标记，预览效果更友好
+                </div>
+              </div>
+              <div className={styles.part}>
+                <div>
+                  <Image
+                    width={220}
+                    height={300}
+                    src={require('../image/核心功能3.png')}
+                  />
+                </div>
+                <div className={styles.description}>
+                  模版可编程，支持运行态动态调整打印效果
+                </div>
+              </div>
+              <div className={styles.part}>
+                <div>
+                  <Image
+                    width={220}
+                    height={300}
+                    src={require('../image/核心功能4.png')}
+                  />
+                </div>
+                <div className={styles.description}>
+                  大数据量打印，异步渲染，进度实时掌控
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className={styles.getMore} onClick={getMore}>
+            {'更多功能>>'}
+          </div>
+        </div>
+      </div>
+      <div className={styles.componentContent3}>
+        <div style={{ textAlign: 'center' }}>
+          <div className={styles.content1}>
+            <div
+              style={{
+                fontSize: 36,
+                marginBottom: 24,
+                fontWeight: 'bold',
+                textAlign: 'center',
+              }}
+            >
+              案例
             </div>
             <div className={styles.partList}>
               <div className={styles.part}>1</div>
               <div className={styles.part}>2</div>
               <div className={styles.part}>3</div>
             </div>
+          </div>
+          <div className={styles.getMore} onClick={getMore}>
+            {'更多案例>>'}
           </div>
         </div>
       </div>

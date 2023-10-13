@@ -1,9 +1,18 @@
 import { Tree, Image } from 'antd';
 import styles from './index.less';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import ReactMarkdown from 'react-markdown';
-// import md from '../../public/log.md';
-const md = require('../../public/log.md');
+import TextComp from './textComp';
+import LineComp from './lineComp';
+import MarkComp from './markComp';
+import CheckboxComp from './checkboxComp';
+import PicComp from './picComp';
+import CodecComp from './codecComp';
+import BarCodeComp from './barCodeComp';
+import PanelComp from './panelComp';
+import TableComp from './tableComp';
+import RowComp from './rowComp';
+import PublicComp from './publicComp';
 
 const treeData = [
   {
@@ -62,19 +71,15 @@ const treeData = [
       },
       {
         key: `1-9`,
-        title: `列板`,
+        title: `列板、行板`,
         children: [],
       },
-      {
-        key: `1-10`,
-        title: `行板`,
-        children: [],
-      },
-      {
-        key: `1-11`,
-        title: `交叉表`,
-        children: [],
-      },
+
+      // {
+      //   key: `1-11`,
+      //   title: `交叉表`,
+      //   children: [],
+      // },
       {
         key: `1-12`,
         title: `公共属性`,
@@ -167,10 +172,9 @@ export default function HomePage() {
     if (selectedKeys.length !== 0) {
       setSelectedKeys(selectedKeys);
     } else {
-      setSelectedKeys(info.node.key);
+      setSelectedKeys([info.node.key]);
     }
   };
-  console.log(md);
 
   return (
     <div className={styles.indexContent}>
@@ -251,7 +255,127 @@ export default function HomePage() {
             ) : selectedKeys[0] == '1-0' ? (
               <div>
                 <h1>线条</h1>
-                <ReactMarkdown>{md}</ReactMarkdown>
+                <div>
+                  <Image
+                    width={800}
+                    height={500}
+                    src={require('../image/线条.jpg')}
+                  ></Image>
+                </div>
+                <LineComp />
+              </div>
+            ) : selectedKeys[0] == '1-1' ? (
+              <div>
+                <h1>标签</h1>
+                <div>
+                  <Image
+                    width={800}
+                    height={500}
+                    src={require('../image/标签.jpg')}
+                  ></Image>
+                </div>
+                <TextComp />
+              </div>
+            ) : selectedKeys[0] == '1-2' ? (
+              <div>
+                <h1>标记符</h1>
+                <div>
+                  <Image
+                    width={800}
+                    height={500}
+                    src={require('../image/标记符.jpg')}
+                  ></Image>
+                </div>
+                <MarkComp />
+              </div>
+            ) : selectedKeys[0] == '1-3' ? (
+              <div>
+                <h1>复选框</h1>
+                <div>
+                  <Image
+                    width={800}
+                    height={500}
+                    src={require('../image/复选框.jpg')}
+                  ></Image>
+                </div>
+                <CheckboxComp />
+              </div>
+            ) : selectedKeys[0] == '1-4' ? (
+              <div>
+                <h1>图片</h1>
+                <div>
+                  <Image
+                    width={800}
+                    height={500}
+                    src={require('../image/图片.jpg')}
+                  ></Image>
+                </div>
+                <PicComp />
+              </div>
+            ) : selectedKeys[0] == '1-5' ? (
+              <div>
+                <h1>编码组</h1>
+                <div>
+                  <Image
+                    width={800}
+                    height={500}
+                    src={require('../image/编码组.jpg')}
+                  ></Image>
+                </div>
+                <CodecComp />
+              </div>
+            ) : selectedKeys[0] == '1-6' ? (
+              <div>
+                <h1>条形码</h1>
+                <div>
+                  <Image
+                    width={800}
+                    height={500}
+                    src={require('../image/条形码.jpg')}
+                  ></Image>
+                </div>
+                <BarCodeComp />
+              </div>
+            ) : selectedKeys[0] == '1-7' ? (
+              <div>
+                <h1>面板</h1>
+                <div>
+                  <Image
+                    width={800}
+                    height={500}
+                    src={require('../image/面板.jpg')}
+                  ></Image>
+                </div>
+                <PanelComp />
+              </div>
+            ) : selectedKeys[0] == '1-8' ? (
+              <div>
+                <h1>表格</h1>
+                <div>
+                  <Image
+                    width={800}
+                    height={500}
+                    src={require('../image/表格.jpg')}
+                  ></Image>
+                </div>
+                <TableComp />
+              </div>
+            ) : selectedKeys[0] == '1-9' ? (
+              <div>
+                <h1>列板、行板</h1>
+                <div>
+                  <Image
+                    width={800}
+                    height={500}
+                    src={require('../image/行板.jpg')}
+                  ></Image>
+                </div>
+                <RowComp />
+              </div>
+            ) : selectedKeys[0] == '1-12' ? (
+              <div>
+                <h1>公共属性</h1>
+                <PublicComp />
               </div>
             ) : selectedKeys[0] == '2-0' ? (
               <div>
