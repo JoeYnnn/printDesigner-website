@@ -1,11 +1,12 @@
 import { Image, Tree } from 'antd';
 import styles from './index.less';
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import AceEditor from 'react-ace';
 
 import 'ace-builds/src-noconflict/mode-javascript';
 import 'ace-builds/src-noconflict/theme-github';
 import 'ace-builds/src-noconflict/ext-language_tools';
+import { useSearchParams } from 'umi';
 
 const treeData = [
   {
@@ -70,18 +71,13 @@ const treeData = [
     title: `使用简单表格`,
     children: [
       {
-        key: `3-1`,
-        title: `简单表格使用`,
-        children: [],
-      },
-      {
         key: `3-2`,
-        title: `横向表格(行板)`,
+        title: `横向表格(横表&行板)`,
         children: [],
       },
       {
         key: `3-3`,
-        title: `纵向表格(列板)`,
+        title: `纵向表格(列表&列板)`,
         children: [],
       },
     ],
@@ -199,14 +195,59 @@ const treeData = [
 ];
 
 const index = () => {
-  const [selectedKeys, setSelectedKeys] = useState(['1-0']);
+  const [selectedKeys, setSelectedKeys] = useState(['6-2']);
+  const indexRef = useRef<any>(null);
+  const [searchParams, setSearchParams] = useSearchParams();
+  const [treeExpandKeys, setTreeExpandKeys] = useState([]);
+  const [autoExpandParent, setAutoExpandParent] = useState(true);
+
+  useEffect(() => {
+    console.log(searchParams.get('key'));
+    let key: any = searchParams.get('key');
+    if (searchParams.get('key')) {
+      key = searchParams.get('key');
+    } else {
+      key = '1-0';
+    }
+    setSelectedKeys([key]);
+
+    let newExpandedKeys: any = [getParentKey(key, treeData), key];
+    newExpandedKeys = [...new Set(newExpandedKeys)];
+    setTreeExpandKeys(newExpandedKeys);
+    setAutoExpandParent(true);
+  }, [searchParams]);
+
+  const getParentKey = (key: any, tree: any) => {
+    let parentKey: any = [];
+    for (let i = 0; i < tree.length; i++) {
+      const node = tree[i];
+      if (node.children) {
+        if (node.children.some((item: any) => item.key === key)) {
+          parentKey.push(node.key);
+        } else if (node.children?.length) {
+          const childKey = getParentKey(key, node.children);
+          parentKey = childKey.length ? [node.key, ...childKey] : parentKey;
+        }
+      }
+    }
+    return parentKey!;
+  };
 
   const onSelect = (selectedKeys: any, info: any) => {
     if (selectedKeys.length !== 0) {
+      setTimeout(() => {
+        indexRef?.current?.scrollTo({ top: 0, behavior: 'smooth' });
+      });
       setSelectedKeys(selectedKeys);
     } else {
-      setSelectedKeys(info.node.key);
+      setSelectedKeys([info.node.key]);
     }
+    setAutoExpandParent(true);
+  };
+
+  const onExpend = (selectedKeys: any) => {
+    setAutoExpandParent(false);
+    setTreeExpandKeys(selectedKeys);
   };
 
   const onChange = () => {};
@@ -217,13 +258,16 @@ const index = () => {
         <div className={styles.content}>
           <div className={styles.leftNav}>
             <Tree
+              autoExpandParent={autoExpandParent}
+              expandedKeys={treeExpandKeys}
+              onExpand={onExpend}
               selectedKeys={selectedKeys}
               onSelect={onSelect}
               blockNode
               treeData={treeData}
             />
           </div>
-          <div className={styles.mainContent}>
+          <div className={styles.mainContent} ref={indexRef}>
             {selectedKeys[0] == '0' ? (
               <div></div>
             ) : selectedKeys[0] == '1-0' ? (
@@ -373,10 +417,250 @@ const index = () => {
               <div></div>
             ) : selectedKeys[0] == '4' ? (
               <div></div>
-            ) : selectedKeys[0] == '5' ? (
-              <div></div>
-            ) : selectedKeys[0] == '6' ? (
-              <div></div>
+            ) : selectedKeys[0] == '5-2' ? (
+              <div>
+                <h1>每页打印</h1>
+                <h2>每页打印模版运行效果：</h2>
+                <p>1.案例效果:</p>
+                <Image
+                  width={800}
+                  height={1400}
+                  src={require('../image/每页打印案例1.png')}
+                ></Image>
+                <p>
+                  本模版就诊患者信息这一栏即使用了行板的每页打印，使得在多页渲染时，患者信息可以每页渲染；
+                </p>
+                <p>另外，当控件放置到页眉和页脚时，会默认每页打印：</p>
+                <Image
+                  width={800}
+                  height={1400}
+                  src={require('../image/每页打印案例2.png')}
+                ></Image>
+
+                <h1>每页打印模版制作：</h1>
+                <p>1. 新建模版后，页眉和页脚部分默认即为每页打印。 </p>
+                <Image
+                  width={800}
+                  height={400}
+                  src={require('../image/每页打印案例3.png')}
+                ></Image>
+                <p></p>
+                <Image
+                  width={800}
+                  height={400}
+                  src={require('../image/每页打印案例4.png')}
+                ></Image>
+                <p>
+                  2.
+                  某些情况需要在业务数据循环时使用每页打印，则需要在模版中循环的业务数据绑定的板对应的板上进行循环设置，设置每页打印，即可实现每页打印的效果。此处打印模式默认是
+                  "只打一次"。
+                </p>
+                <Image
+                  width={800}
+                  height={400}
+                  src={require('../image/每页打印案例5.png')}
+                ></Image>
+                <p>3. 此模版使用了分组功能，分组功能请详细参考 使用简单分组</p>
+
+                <p>
+                  本页面示例模版下载：
+                  <a href="https://winwiki.winning.com.cn/download/attachments/82769148/%E7%94%A8%E8%8D%AF%E6%8C%87%E5%AF%BC%E5%8D%95.xml?version=1&modificationDate=1697177635561&api=v2">
+                    下载
+                  </a>
+                </p>
+                <p>
+                  模版对应的预置数据下载：
+                  <a href="https://winwiki.winning.com.cn/download/attachments/82769153/%E7%94%A8%E8%8D%AF%E6%8C%87%E5%AF%BC%E5%8D%95%E6%AF%8F%E9%A1%B5%E6%89%93%E5%8D%B0.json?version=2&modificationDate=1697181095543&api=v2">
+                    下载
+                  </a>
+                </p>
+              </div>
+            ) : selectedKeys[0] == '6-1' ? (
+              <div>
+                <h1>简单分组</h1>
+                <h2>简单分组报表模版运行效果：</h2>
+                <p>1.案例效果:</p>
+                <Image
+                  width={800}
+                  height={1400}
+                  src={require('../image/简单分组案例1.png')}
+                ></Image>
+                <p></p>
+                <Image
+                  width={800}
+                  height={1400}
+                  src={require('../image/简单分组案例2.png')}
+                ></Image>
+                <p>
+                  本模版使用就诊标识进行分组，共渲染两页，第一页分组后双鞭呼延灼一共有三条药品指导记录，第二页分组后双鞭呼延灼2一共有一条药品指导记录
+                </p>
+                <p>
+                  业务数据一共有4条药品指导数据， 就诊标识为310486398463459328
+                  的双鞭呼延灼一共有三条药品记录；就诊标识为310486398463459329的双鞭呼延灼一共有一条药品记录，按照床号排序后，得到上述渲染效果。
+                </p>
+
+                <h1>简单分组模版制作：</h1>
+                <p>
+                  1.
+                  新建模版后，维护数据集，依据数据集或者后端业务接口数据格式确定如何分组。找到数据集需要分组的节点，点击右键，选择分组功能。
+                </p>
+                <Image
+                  width={800}
+                  height={400}
+                  src={require('../image/简单分组案例3.png')}
+                ></Image>
+                <p></p>
+                <Image
+                  width={800}
+                  height={500}
+                  src={require('../image/简单分组案例4.png')}
+                ></Image>
+                <p>
+                  添加一条分组，如需在此节点按多个字段分组，则可添加多条分组记录。点击确定后，简单分组完成
+                </p>
+                <p>
+                  2.
+                  在需要对分组结果的明细进行遍历时，需在分组节点下创建BEAN数据集，以模拟分组明细(item数据集为系统默认，在分组建立后，创建item数据集才可通过)。此模版需要对分组之后的结果进行遍历，故新建了item数据集。
+                </p>
+                <Image
+                  width={800}
+                  height={400}
+                  src={require('../image/简单分组案例5.png')}
+                ></Image>
+                <p></p>
+                <Image
+                  width={800}
+                  height={400}
+                  src={require('../image/简单分组案例6.png')}
+                ></Image>
+                <p></p>
+                <Image
+                  width={800}
+                  height={400}
+                  src={require('../image/简单分组案例7.png')}
+                ></Image>
+                <p>
+                  3. 此模版使用了每页打印打印样式，每页打印功能请详细参考
+                  每页打印
+                </p>
+                <Image
+                  width={800}
+                  height={400}
+                  src={require('../image/简单分组案例8.png')}
+                ></Image>
+                <p>
+                  本页面示例模版下载：
+                  <a href="https://winwiki.winning.com.cn/download/attachments/82769148/%E7%94%A8%E8%8D%AF%E6%8C%87%E5%AF%BC%E5%8D%95.xml?version=1&modificationDate=1697177635561&api=v2">
+                    下载
+                  </a>
+                </p>
+                <p>
+                  模版对应的预置数据下载：
+                  <a href="https://winwiki.winning.com.cn/download/attachments/82769148/%E7%AE%80%E5%8D%95%E5%88%86%E7%BB%84%E4%B8%9A%E5%8A%A1%E6%95%B0%E6%8D%AE.json?version=1&modificationDate=1697177682553&api=v2">
+                    下载
+                  </a>
+                </p>
+              </div>
+            ) : selectedKeys[0] == '6-2' ? (
+              <div>
+                <h1>多级分组</h1>
+                <h2>多级分组报表模版运行效果：</h2>
+                <p>1.案例效果:</p>
+                <Image
+                  width={800}
+                  height={1400}
+                  src={require('../image/多级分组案例1.png')}
+                ></Image>
+                <p>
+                  本模版先使用住院实际发药单据号进行分组，分完组之后，又依据
+                  执行计划标识 进行分组。
+                </p>
+                <p>
+                  第1-3页为住院实际发药单据号为ZYFY5710220230830000025的药品数据，{' '}
+                </p>
+                <p>
+                  第4-5页为住院实际发药单据号为ZYFY5710220230830000026的药品数据，{' '}
+                </p>
+                <p>
+                  第1，第4页为汇总页，
+                  第2-3页，第5页为明细页。第2页甘露醇注射液的执行计划标识为315629918153109516，第3页左氧氟沙星针的执行计划标识
+                </p>
+                <p>
+                  为315787354474311704，第5页左氧氟沙星针的执行计划标识为315787354474311705
+                </p>
+
+                <h1>多级分组模版制作：</h1>
+                <p>
+                  1.
+                  新建模版后，维护数据集，依据数据集或者后端业务接口数据格式确定如何分组。找到数据集需要分组的节点，点击右键，选择分组功能。
+                </p>
+                <Image
+                  width={800}
+                  height={400}
+                  src={require('../image/多级分组案例2.png')}
+                ></Image>
+                <p>
+                  添加一条分组，如需在此节点按多个字段分组，则可添加多条分组记录。
+                </p>
+                <Image
+                  width={800}
+                  height={400}
+                  src={require('../image/多级分组案例3.png')}
+                ></Image>
+                <p></p>
+                <Image
+                  width={800}
+                  height={400}
+                  src={require('../image/多级分组案例4.png')}
+                ></Image>
+                <p>点击确定后，第一级分组完成</p>
+                <p>
+                  2.
+                  在需要进行第二级分组时，需在第一级分组节点下创建BEAN数据集，以模拟分组明细，在分组明细的基础上，再进行第一步分组操作。(item数据集为系统默认，在第一级分组建立后，创建item数据集才可通过)
+                </p>
+                <Image
+                  width={800}
+                  height={400}
+                  src={require('../image/多级分组案例5.png')}
+                ></Image>
+                <p></p>
+                <Image
+                  width={800}
+                  height={400}
+                  src={require('../image/多级分组案例6.png')}
+                ></Image>
+                <p>
+                  再在新建的item数据集上进行与第一步一致的分组操作，如需遍历第二级分组下的明细，则仍需要在第二级分组下新建item数据集，用以在画布上绑板。此模版为需要遍历二级分组下明细的情况，故再次新建了item数据集，并在画布处进行了绑定。
+                </p>
+                <Image
+                  width={800}
+                  height={400}
+                  src={require('../image/多级分组案例7.png')}
+                ></Image>
+                <p></p>
+                <Image
+                  width={800}
+                  height={400}
+                  src={require('../image/多级分组案例8.png')}
+                ></Image>
+                <p>
+                  3.
+                  此模版为多页模版与多级分组打印情况的结合，多页模版制作请参考
+                  使用多页模版
+                </p>
+                <p>
+                  本页面示例模版下载：
+                  <a href="https://winwiki.winning.com.cn/download/attachments/82769150/%E4%BD%8F%E9%99%A2%E8%8D%AF%E6%88%BF%E8%BE%93%E6%B6%B2%E7%BB%84%E5%90%88%E7%AD%BE.xml?version=1&modificationDate=1697176362696&api=v2">
+                    下载
+                  </a>
+                </p>
+                <p>
+                  模版对应的预置数据下载：
+                  <a href="https://winwiki.winning.com.cn/download/attachments/82769150/%E4%BD%8F%E9%99%A2%E8%8D%AF%E6%88%BF%E8%BE%93%E6%B6%B2%E7%BB%84%E5%90%88%E7%AD%BE%E4%B8%9A%E5%8A%A1%E6%95%B0%E6%8D%AE.json?version=1&modificationDate=1697176419543&api=v2">
+                    下载
+                  </a>
+                </p>
+              </div>
             ) : selectedKeys[0] == '7' ? (
               <div>
                 <h1>交叉报表</h1>
@@ -529,13 +813,13 @@ const index = () => {
                 </p>
                 <Image
                   width={800}
-                  height={500}
+                  height={1800}
                   src={require('../image/多页模板3.png')}
                 ></Image>
                 <p></p>
                 <Image
                   width={800}
-                  height={500}
+                  height={1000}
                   src={require('../image/多页模板4.png')}
                 ></Image>
                 <p>

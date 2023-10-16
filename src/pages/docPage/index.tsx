@@ -1,4 +1,4 @@
-import { Tree, Image } from 'antd';
+import { Tree, Image, Table } from 'antd';
 import styles from './index.less';
 import { useEffect, useState } from 'react';
 import TextComp from './textComp';
@@ -84,16 +84,16 @@ const treeData = [
         title: `公共属性`,
         children: [],
       },
-      {
-        key: `1-13`,
-        title: `变量`,
-        children: [],
-      },
-      {
-        key: `1-14`,
-        title: `公共事件`,
-        children: [],
-      },
+      // {
+      //   key: `1-13`,
+      //   title: `变量`,
+      //   children: [],
+      // },
+      // {
+      //   key: `1-14`,
+      //   title: `公共事件`,
+      //   children: [],
+      // },
     ],
   },
   {
@@ -157,15 +157,132 @@ const treeData = [
     title: `模板运行态API`,
     children: [],
   },
+  // {
+  //   key: `7`,
+  //   title: `画布操作`,
+  //   children: [],
+  // },
   {
-    key: `7`,
-    title: `画布操作`,
+    key: `8`,
+    title: `混合框架打印对接`,
     children: [],
   },
 ];
 
 export default function HomePage() {
   const [selectedKeys, setSelectedKeys] = useState(['0']);
+
+  const dataSource = [
+    {
+      key: '1',
+      name: 'winning.report.printSvg(string printerName, string svgStrs,string printParams)',
+      description: 'svg 打印',
+    },
+    {
+      key: '2',
+      name: 'winning.report.getPrinters()',
+      description: '获取打印机列表',
+      values: '0.25-10.0',
+    },
+    {
+      key: '3',
+      name: 'winning.report.savePrintConfig(string configFileName, string config)',
+      description: '打印机配置保存',
+      values: ``,
+    },
+    {
+      key: '4',
+      name: 'winning.report.loadPrintConfig(string configFileName)',
+      description: '加载打印机配置',
+      values: '平行、起点相同、终点相同',
+    },
+  ];
+  const columns = [
+    {
+      title: '接口',
+      dataIndex: 'name',
+      key: 'name',
+      width: '40%',
+    },
+    {
+      title: '功能报表',
+      dataIndex: 'description',
+      key: 'description',
+      width: '10%',
+    },
+    {
+      title: '参数说明',
+      dataIndex: 'values',
+      key: 'values',
+      width: '50%',
+      render: (text: any, record: any, index: any) => {
+        console.log(index);
+        if (index == 0) {
+          return (
+            <>
+              <div>printerName：打印机名称</div>
+              <div>svgStrs：svg内容</div>
+              <div>（多页打印格式如下：</div>
+              <div>{'<pages>'}</div>
+              <div style={{ paddingLeft: 12 }}>{'<page>'}</div>
+              <div style={{ paddingLeft: 24 }}>{'<svg>....</svg>'}</div>
+              <div style={{ paddingLeft: 12 }}>{'</page>'}</div>
+              <div style={{ paddingLeft: 12 }}>{'<page>'}</div>
+              <div style={{ paddingLeft: 24 }}>{'<svg>....</svg>'}</div>
+              <div style={{ paddingLeft: 12 }}>{'</page>'}</div>
+              <div>{'</page>'}</div>
+              <div>{')'}</div>
+              <div>
+                printParams：
+                打印参数(必传：printerName，其他参数根据需求场景选择)
+              </div>
+              <div>{'{'}</div>
+              <div>
+                "printerName":"Microsoft Print to PDF",//
+                打印机名称，默认使用本地默认打印机
+              </div>
+              <div>
+                "paperSide": 0 , // 单双面打印，默认值 0，单面 1，手动双面
+                2，自动双面（长边）3，自动双面（短边）4
+              </div>
+              <div>"printCopies": 1, // 打印份数，默认值 1</div>
+              <div>
+                "printCollate":false, // 文档是否逐份打印，默认值
+                false(需要打印机支持)
+              </div>
+              <div>
+                逐份：1，2，3，4，1，2，3，4），逐页：1，1，2，2，3，3，4，4
+              </div>
+              <div>"offsetX": 0.0, // 水平偏移 单位 mm</div>
+              <div>"offsetY": 0.0, // 垂直偏移 单位 mm</div>
+              <div>
+                "doubleAutoForceOddStart": false, //
+                自动双面打印，偶数页开始是否强制不填充空白页
+              </div>
+              <div>
+                "printMode": 0, // 0 无任何模式，2 一般续打，4
+                一般补打(包括撤销打印)，8
+                混合打印(续、补打)，该参数仅适用医嘱单打印
+              </div>
+              <div>{'}'}</div>
+            </>
+          );
+        } else if (index == 1) {
+          return <>列表第一个为默认打印机</>;
+        } else if (index == 2) {
+          return (
+            <>
+              <div>文件保存目录：混合框架/report_configs</div>
+              <div>configFileName： 配置文件名称</div>
+              <div>config：打印机配置（自己定义文件内容）</div>
+            </>
+          );
+        } else if (index == 3) {
+          return <>configFileName： 配置文件名称</>;
+        }
+      },
+    },
+  ];
 
   const onSelect = (selectedKeys: any, info: any) => {
     if (selectedKeys.length !== 0) {
@@ -536,7 +653,18 @@ export default function HomePage() {
               </div>
             ) : selectedKeys[0] == '4' ? (
               <div>
-                <h1>模板制作视频讲解</h1>
+                <h1>模板相关视频讲解</h1>
+
+                <p>培训视频</p>
+                <p>
+                  链接:{' '}
+                  <a
+                    href="https://winwiki.winning.com.cn/pages/viewpage.action?pageId=20409180"
+                    target="_blank"
+                  >
+                    https://winwiki.winning.com.cn/pages/viewpage.action?pageId=20409180
+                  </a>
+                </p>
                 <p>主要针对SQL数据集培训</p>
                 <p>
                   链接:{' '}
@@ -548,11 +676,32 @@ export default function HomePage() {
                   </a>
                   提取码: hdur
                 </p>
+                <p>混合框架对接</p>
+                <p>
+                  链接:{' '}
+                  <a
+                    href="https://winwiki.winning.com.cn/pages/viewpage.action?pageId=20409168"
+                    target="_blank"
+                  >
+                    https://winwiki.winning.com.cn/pages/viewpage.action?pageId=20409168
+                  </a>
+                </p>
               </div>
             ) : selectedKeys[0] == '5' ? (
               <div></div>
             ) : selectedKeys[0] == '6' ? (
               <div></div>
+            ) : selectedKeys[0] == '8' ? (
+              <div>
+                <h1>混合框架打印对接</h1>
+                <Table
+                  dataSource={dataSource}
+                  columns={columns}
+                  pagination={false}
+                  style={{ width: 1000 }}
+                  bordered
+                />
+              </div>
             ) : (
               <div></div>
             )}

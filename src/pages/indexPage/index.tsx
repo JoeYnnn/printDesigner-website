@@ -8,7 +8,22 @@ export default function HomePage(props: any) {
   };
 
   const getMore = () => {
+    history.push('/casePage');
+  };
+
+  const startUse = () => {
     history.push('/docPage');
+  };
+
+  const caseClick = (key: any) => {
+    console.log(key);
+    if (key == 1) {
+      history.push('/casePage?key=3-3');
+    } else if (key == 2) {
+      history.push('/casePage?key=9-2');
+    } else if (key == 3) {
+      history.push('/casePage?key=8');
+    }
   };
 
   return (
@@ -29,7 +44,11 @@ export default function HomePage(props: any) {
               WXP打印设计器是WXP研发平台部研发的web浏览器端的打印组件，功能丰富，支持常见的控件如：线条，文本框，复选框，图片(条形码)，表格，交叉表等。
             </div>
             <div>
-              <Button type="primary" style={{ marginRight: 8 }}>
+              <Button
+                type="primary"
+                style={{ marginRight: 8 }}
+                onClick={startUse}
+              >
                 开始使用
               </Button>
               <Button onClick={routeToDoc}>阅读文档</Button>
@@ -172,9 +191,45 @@ export default function HomePage(props: any) {
               案例
             </div>
             <div className={styles.partList}>
-              <div className={styles.part}>1</div>
-              <div className={styles.part}>2</div>
-              <div className={styles.part}>3</div>
+              <div className={styles.part}>
+                <div>
+                  <Image
+                    width={220}
+                    height={300}
+                    preview={false}
+                    onClick={() => caseClick(1)}
+                    style={{ cursor: 'pointer' }}
+                    src={require('../image/首页案例3.jpg')}
+                  />
+                </div>
+                <div className={styles.description}>列板循环渲染</div>
+              </div>
+              <div className={styles.part}>
+                <div>
+                  <Image
+                    width={220}
+                    height={300}
+                    preview={false}
+                    onClick={() => caseClick(2)}
+                    style={{ cursor: 'pointer' }}
+                    src={require('../image/首页案例2.jpg')}
+                  />
+                </div>
+                <div className={styles.description}>补打，续打标记</div>
+              </div>
+              <div className={styles.part}>
+                <div>
+                  <Image
+                    width={220}
+                    height={300}
+                    preview={false}
+                    onClick={() => caseClick(3)}
+                    style={{ cursor: 'pointer' }}
+                    src={require('../image/首页案例1.png')}
+                  />
+                </div>
+                <div className={styles.description}>多页模版分组打印</div>
+              </div>
             </div>
           </div>
           <div className={styles.getMore} onClick={getMore}>
