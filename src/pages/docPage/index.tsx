@@ -1,7 +1,6 @@
 import { Tree, Image } from 'antd';
 import styles from './index.less';
 import { useEffect, useState } from 'react';
-import ReactMarkdown from 'react-markdown';
 import TextComp from './textComp';
 import LineComp from './lineComp';
 import MarkComp from './markComp';

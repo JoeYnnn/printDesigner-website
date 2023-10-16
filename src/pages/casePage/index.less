@@ -13,7 +13,7 @@
     );
 
     .content {
-      width: 1200px;
+      width: 100%;
       display: flex;
       justify-content: center;
       position: relative;
@@ -26,15 +26,17 @@
         position: absolute;
         padding-top: 18px;
         top: 40px;
-        left: -66px;
+        left: 15%;
         z-index: 1;
       }
 
       .mainContent {
-        width: 900px;
+        width: 100%;
         height: calc(100vh - 64px);
         overflow: auto;
         padding-left: 12px;
+        left: calc(15% + 240px);
+        position: relative;
 
         .imageBox {
           display: flex;
