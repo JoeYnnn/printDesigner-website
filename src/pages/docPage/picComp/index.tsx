@@ -36,7 +36,7 @@ const index = () => {
       key: '6',
       name: '类型',
       description: '图片源',
-      values: '网络文件、本地文件、数据变量',
+      values: '本地文件、数据变量(格式为base64或URL)',
     },
   ];
   const columns = [

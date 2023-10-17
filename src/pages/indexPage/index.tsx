@@ -172,7 +172,7 @@ export default function HomePage(props: any) {
               </div>
             </div>
           </div>
-          <div className={styles.getMore} onClick={getMore}>
+          <div className={styles.getMore} onClick={routeToDoc}>
             {'更多功能>>'}
           </div>
         </div>

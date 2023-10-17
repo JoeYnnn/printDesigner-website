@@ -45,22 +45,12 @@ const treeData = [
     title: `使用脚本打印`,
     children: [
       {
-        key: `2-0`,
+        key: `2-1`,
         title: `动态设置边框`,
         children: [],
       },
       {
-        key: `2-1`,
-        title: `动态设置字体`,
-        children: [],
-      },
-      {
         key: `2-2`,
-        title: `动态变量赋值`,
-        children: [],
-      },
-      {
-        key: `2-3`,
         title: `表格合计等`,
         children: [],
       },
@@ -88,27 +78,12 @@ const treeData = [
     children: [
       {
         key: `4-1`,
-        title: `自动大小`,
+        title: `自动大小、最大行数、最大宽度`,
         children: [],
       },
       {
         key: `4-2`,
-        title: `最大行数`,
-        children: [],
-      },
-      {
-        key: `4-3`,
-        title: `最大宽度`,
-        children: [],
-      },
-      {
-        key: `4-4`,
-        title: `换行文本`,
-        children: [],
-      },
-      {
-        key: `4-5`,
-        title: `页缝换行`,
+        title: `换行文本、页缝换行`,
         children: [],
       },
     ],
@@ -118,23 +93,18 @@ const treeData = [
     title: `使用循环打印样式`,
     children: [
       {
-        key: `5-1`,
-        title: `循环方向`,
-        children: [],
-      },
-      {
         key: `5-2`,
         title: `每页打印`,
         children: [],
       },
       {
         key: `5-3`,
-        title: `最大水平、垂直打印设置`,
+        title: `循环方向、最大水平、垂直打印设置`,
         children: [],
       },
       {
         key: `5-4`,
-        title: `空间不足时打印模式`,
+        title: `使用补齐空行`,
         children: [],
       },
     ],
@@ -204,6 +174,7 @@ const index = () => {
   useEffect(() => {
     console.log(searchParams.get('key'));
     let key: any = searchParams.get('key');
+
     if (searchParams.get('key')) {
       key = searchParams.get('key');
     } else {
@@ -238,8 +209,10 @@ const index = () => {
       setTimeout(() => {
         indexRef?.current?.scrollTo({ top: 0, behavior: 'smooth' });
       });
+      setSearchParams({ key: selectedKeys[0] });
       setSelectedKeys(selectedKeys);
     } else {
+      setSearchParams({ key: info.node.key });
       setSelectedKeys([info.node.key]);
     }
     setAutoExpandParent(true);
@@ -250,7 +223,19 @@ const index = () => {
     setTreeExpandKeys(selectedKeys);
   };
 
-  const onChange = () => {};
+  const historyToCase = (key: any) => {
+    setSelectedKeys([key]);
+    setTimeout(() => {
+      indexRef?.current?.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    let newExpandedKeys: any = [getParentKey(key, treeData), key];
+    newExpandedKeys = [...new Set(newExpandedKeys)];
+    setTreeExpandKeys(newExpandedKeys);
+    setAutoExpandParent(true);
+
+    setSearchParams({ key });
+  };
 
   return (
     <div className={styles.indexContent}>
@@ -273,6 +258,7 @@ const index = () => {
             ) : selectedKeys[0] == '1-0' ? (
               <div>
                 <h1>线条</h1>
+                <h2>线条模版运行效果：</h2>
                 <p>1.案例效果</p>
                 <div>
                   <Image
@@ -311,7 +297,12 @@ const index = () => {
                     分数/日期。
                   </p>
                   <p></p>
-                  <p>3. 此案例使用了列板功能，列板具体使用请参见案例: </p>
+                  <p>
+                    3. 此案例使用了列板功能，列板具体使用请参见案例:{' '}
+                    <a onClick={() => historyToCase('3-3')}>
+                      简单表格(列表&列板)
+                    </a>
+                  </p>
                   <Image
                     width={800}
                     height={400}
@@ -332,10 +323,73 @@ const index = () => {
                 </div>
               </div>
             ) : selectedKeys[0] == '1-1' ? (
-              <div></div>
+              <div>
+                <h1>文本框</h1>
+                <h2>文本框模版运行效果：</h2>
+                <p>1.案例效果</p>
+                <div>
+                  <Image
+                    width={800}
+                    height={600}
+                    src={require('../image/文本案例1.png')}
+                  ></Image>
+                  <p>
+                    本案例此处使用了文本折行展示，故宽度到达边界时，进行了折行渲染。{' '}
+                  </p>
+                  <Image
+                    width={800}
+                    height={500}
+                    src={require('../image/文本案例2.png')}
+                  ></Image>
+                  <p>
+                    当"文本折行"设置为"否"，且"文本超出"设置为"省略号"时，为如下展示效果。{' '}
+                  </p>
+                  <Image
+                    width={800}
+                    height={500}
+                    src={require('../image/文本案例3.png')}
+                  ></Image>
+                  <p></p>
+                  <Image
+                    width={800}
+                    height={450}
+                    src={require('../image/文本案例4.png')}
+                  ></Image>
+
+                  <h1>文本控件模版制作：</h1>
+                  <p>
+                    1.
+                    新建模版后，在使用"标签"控件的场景，在右侧属性区进行"文本"部分属性区属性的设置。
+                  </p>
+                  <Image
+                    width={800}
+                    height={500}
+                    src={require('../image/文本案例5.png')}
+                  ></Image>
+
+                  <p>
+                    2. 此模版使用了行板功能，行板功能请详细参考
+                    简单表格(横表&行板)
+                  </p>
+
+                  <p>
+                    本页面示例模版下载：
+                    <a href="https://winwiki.winning.com.cn/download/attachments/82769177/%E9%95%BF%E6%9C%9F%E5%8C%BB%E5%98%B1%E5%8D%95%28%E6%97%A7%29-0918%20%284%29.xml?version=1&modificationDate=1697445787613&api=v2">
+                      下载
+                    </a>
+                  </p>
+                  <p>
+                    模版对应的预置数据下载：
+                    <a href="https://winwiki.winning.com.cn/download/attachments/82769177/%E6%96%87%E6%9C%AC%E6%8E%A7%E4%BB%B6%E4%B8%9A%E5%8A%A1%E6%95%B0%E6%8D%AE.json?version=1&modificationDate=1697445799729&api=v2">
+                      下载
+                    </a>
+                  </p>
+                </div>
+              </div>
             ) : selectedKeys[0] == '1-2' ? (
               <div>
                 <h1>复选框</h1>
+                <h2>复选框模版运行效果：</h2>
                 <p>1.案例效果</p>
                 <Image
                   width={800}
@@ -378,8 +432,8 @@ const index = () => {
                   src={require('../image/复选框案例4.png')}
                 ></Image>
                 <p>
-                  3. 此案例使用了每页打印功能，每页打印具体使用请参见案例:{' '}
-                  <a href="">每页打印</a>
+                  3. 此案例使用了每页打印功能，每页打印具体使用请参见案例:
+                  <a onClick={() => historyToCase('5-2')}>每页打印</a>
                 </p>
                 <Image
                   width={800}
@@ -399,24 +453,517 @@ const index = () => {
                   </a>
                 </p>
               </div>
-            ) : selectedKeys[0] == '2-0' ? (
-              <div></div>
+            ) : selectedKeys[0] == '1-3' ? (
+              <div>
+                <h1>图片</h1>
+                <h2>图片模版运行效果：</h2>
+                <p>1.案例效果</p>
+                <Image
+                  width={800}
+                  height={300}
+                  src={require('../image/图片控件案例1.png')}
+                ></Image>
+                <p>
+                  本模版"医生签字，护士签字"四栏栏展示了图盘实际使用效果。起始处和停止处医生签字栏使用了图片控件，但因无此图片(业务数据给出的
+                </p>
+                url404或者其余情况加载不到，使用图片控件配置的文本变量展示)；护士签字栏使用了图片控件，业务数据给出的url图片能正常加载，
+                <p>
+                  故此栏展示了图片。下图展示了签名栏图片控件设置的方法，当图片数据变量加载成功时展示对应图片，加载失败时使用替换文本展示。
+                </p>
+                <Image
+                  width={800}
+                  height={500}
+                  src={require('../image/图片控件案例2.png')}
+                ></Image>
+                <h1>图片模版制作：</h1>
+                <p>
+                  1.
+                  新建模版后，图片控件到画布，或者使用表格的话，选中单元格右键设置单元格类型为图片。{' '}
+                </p>
+                <Image
+                  width={800}
+                  height={500}
+                  src={require('../image/图片控件案例3.png')}
+                ></Image>
+                <p></p>
+                <Image
+                  width={800}
+                  height={500}
+                  src={require('../image/图片控件案例4.png')}
+                ></Image>
+                <p>2. 设置图片属性，</p>
+                <p>
+                  选中控件，在右侧属性区，设置图片类型为数据变量时，"基础属性"部分的变量属性为加载图片时使用的url变量。如加载的url变量加载图片
+                </p>
+                <p>加载不到时，则使用"替换文本"中的变量定义展示相应文本。</p>
+                <Image
+                  width={800}
+                  height={500}
+                  src={require('../image/图片控件案例5.png')}
+                ></Image>
+                <p></p>
+                <Image
+                  width={800}
+                  height={500}
+                  src={require('../image/图片控件案例6.png')}
+                ></Image>
+                <p>
+                  当图片"类型"选择"本地文件"时，通过"路径"选中本地图片，此操作会将本地图片转为base64编码的图片格式渲染到画布，当保存模版时，
+                </p>
+                <p>
+                  图片内容以base64编码的格式存储于打印模版当中。还可以调整图片宽度，高度，旋转角度，缩放方式等，正常这些属性可以不调整。
+                </p>
+                <Image
+                  width={800}
+                  height={500}
+                  src={require('../image/图片控件案例7.png')}
+                ></Image>
+                <p>
+                  3. 此案例使用了医嘱打印补打功能，列板具体使用请参见案例:
+                  <a onClick={() => historyToCase('9-2')}>补打实现</a>
+                </p>
+                <p>
+                  本页面示例模版下载：
+                  <a href="https://winwiki.winning.com.cn/download/attachments/82769182/%E9%95%BF%E6%9C%9F%E5%8C%BB%E5%98%B1%E5%8D%95%28%E6%97%A7%29-0918.xml?version=1&modificationDate=1697433070321&api=v2">
+                    下载
+                  </a>
+                </p>
+                <p>
+                  模版对应的预置数据下载：
+                  <a href="https://winwiki.winning.com.cn/download/attachments/82769182/%E9%95%BF%E6%9C%9F%E5%8C%BB%E5%98%B1%E5%8D%95%E4%B8%9A%E5%8A%A1%E6%95%B0%E6%8D%AE%20%282%29.json?version=1&modificationDate=1697436593836&api=v2">
+                    下载
+                  </a>
+                </p>
+              </div>
+            ) : selectedKeys[0] == '1-4' ? (
+              <div>
+                <h1>面板</h1>
+                <h2>面板模版运行效果：</h2>
+                <p>1.案例效果</p>
+                <Image
+                  width={800}
+                  height={400}
+                  src={require('../image/面板案例1.png')}
+                ></Image>
+                <p></p>
+                <Image
+                  width={800}
+                  height={400}
+                  src={require('../image/面板案例2.png')}
+                ></Image>
+
+                <h1>面板模版制作：</h1>
+                <p>
+                  1.
+                  新建模版后，面板控件到画布，或者使用表格的话，选中单元格右键设置单元格类型为面板。{' '}
+                </p>
+                <Image
+                  width={800}
+                  height={500}
+                  src={require('../image/面板案例3.png')}
+                ></Image>
+                <p>2. 设置面板属性，</p>
+                <p>
+                  选中控件，在右侧属性区，可以为面板控件绑定数据节点，不绑定数据节点的话，面板默认使用父级控件的数据节点。
+                </p>
+                <p>如下图模版使用的数据节点为detailDIsplay数据节点。</p>
+                <Image
+                  width={800}
+                  height={500}
+                  src={require('../image/面板案例4.png')}
+                ></Image>
+                <p></p>
+                <Image
+                  width={800}
+                  height={500}
+                  src={require('../image/面板案例5.png')}
+                ></Image>
+                <p>使用面板控件，可以在其内部放置别的子组件。</p>
+                <p>
+                  3. 此案例使用了每页打印功能，列板具体使用请参见案例:{' '}
+                  <a onClick={() => historyToCase('5-2')}>每页打印</a>
+                </p>
+
+                <p>
+                  本页面示例模版下载：
+                  <a href="https://winwiki.winning.com.cn/download/attachments/82769184/%E9%80%9A%E7%94%A8%E6%89%A7%E8%A1%8C%E5%8D%95%20%281%29.xml?version=1&modificationDate=1697438338236&api=v2">
+                    下载
+                  </a>
+                </p>
+                <p>
+                  模版对应的预置数据下载：
+                  <a href="https://winwiki.winning.com.cn/download/attachments/82769184/%E9%80%9A%E7%94%A8%E6%89%A7%E8%A1%8C%E5%8D%95%E4%B8%9A%E5%8A%A1%E6%95%B0%E6%8D%AE.json?version=1&modificationDate=1697438385104&api=v2">
+                    下载
+                  </a>
+                </p>
+              </div>
             ) : selectedKeys[0] == '2-1' ? (
-              <div></div>
+              <div>
+                <h1>动态设置边框</h1>
+                <h2>脚本动态设置边框模版运行效果：</h2>
+                <p>1.案例效果:</p>
+                <Image
+                  width={800}
+                  height={1500}
+                  src={require('../image/动态边框案例1.png')}
+                ></Image>
+                <p>此模版在补齐空行时将表格边框动态进行了设置。</p>
+
+                <h1>脚本设置边框模版制作：</h1>
+                <p>
+                  1.
+                  选中行板，在行板初始化事件中，定义事件脚本，循环遍历行板子级，将子级的borderBottom属性设置为0.5pt
+                  solid 黑色。{' '}
+                </p>
+                <Image
+                  width={800}
+                  height={450}
+                  src={require('../image/动态边框案例2.png')}
+                ></Image>
+                <p></p>
+                <Image
+                  width={800}
+                  height={450}
+                  src={require('../image/动态边框案例3.png')}
+                ></Image>
+
+                <p>2. 此模版使用了补齐空行功能，补齐空行请参考:使用补齐空行</p>
+
+                <p>
+                  本页面示例模版下载：
+                  <a href="https://winwiki.winning.com.cn/download/attachments/82770624/%E7%97%85%E6%88%BF%E6%B1%87%E6%80%BB%E9%A2%86%E8%8D%AF%E5%8D%95-%E6%8C%89%E8%AF%B7%E9%A2%86%E7%A7%91%E5%AE%A4-%E8%8D%AF%E5%93%81ID%E4%BA%8C%E7%BA%A7%E5%88%86%E7%BB%84%20%281%29.xml?version=1&modificationDate=1697440951695&api=v2">
+                    下载
+                  </a>
+                </p>
+                <p>
+                  模版对应的预置数据下载：
+                  <a href="https://winwiki.winning.com.cn/download/attachments/82770624/%E7%97%85%E6%88%BF%E6%B1%87%E6%80%BB%E9%A2%86%E8%8D%AF%E5%8D%95.json?version=1&modificationDate=1697440956244&api=v2">
+                    下载
+                  </a>
+                </p>
+              </div>
             ) : selectedKeys[0] == '2-2' ? (
-              <div></div>
-            ) : selectedKeys[0] == '2-3' ? (
-              <div></div>
-            ) : selectedKeys[0] == '2-4' ? (
-              <div></div>
-            ) : selectedKeys[0] == '2-5' ? (
-              <div></div>
-            ) : selectedKeys[0] == '2-6' ? (
-              <div></div>
-            ) : selectedKeys[0] == '3' ? (
-              <div></div>
-            ) : selectedKeys[0] == '4' ? (
-              <div></div>
+              <div>
+                <h1>表格合计等</h1>
+                <h2>脚本合计模版运行效果：</h2>
+                <p>1.案例效果:</p>
+                <Image
+                  width={800}
+                  height={1200}
+                  src={require('../image/表格合计案例1.png')}
+                ></Image>
+                <p>本模版"合计金额"一栏使用脚本动态进行了合计计算。</p>
+
+                <h1>合计模版制作：</h1>
+                <p>
+                  1.
+                  新建正常模版，在需要合计的控件属性区"变量"部分填写脚本表达式。
+                </p>
+                <Image
+                  width={800}
+                  height={450}
+                  src={require('../image/表格合计案例2.png')}
+                ></Image>
+                <p></p>
+                <Image
+                  width={800}
+                  height={450}
+                  src={require('../image/表格合计案例3.png')}
+                ></Image>
+                <p>
+                  2.
+                  亦可使用事件，在事件中定义脚本计算，为中间变量赋值，在变量处使用此中间变量:
+                </p>
+                <Image
+                  width={800}
+                  height={450}
+                  src={require('../image/表格合计案例4.png')}
+                ></Image>
+                <p></p>
+                <Image
+                  width={800}
+                  height={450}
+                  src={require('../image/表格合计案例5.png')}
+                ></Image>
+                <p></p>
+                <Image
+                  width={800}
+                  height={450}
+                  src={require('../image/表格合计案例6.png')}
+                ></Image>
+
+                <p>
+                  3. 此案例使用了补齐空行功能，补齐空行功能具体使用请参见案例:{' '}
+                  <a onClick={() => historyToCase('5-4')}>补齐空行</a>
+                </p>
+
+                <p>
+                  本页面示例模版下载：
+                  <a href="https://winwiki.winning.com.cn/download/attachments/82769173/%E7%97%85%E6%88%BF%E6%B1%87%E6%80%BB%E9%A2%86%E8%8D%AF%E5%8D%95-%E6%8C%89%E8%AF%B7%E9%A2%86%E7%A7%91%E5%AE%A4-%E8%8D%AF%E5%93%81ID%E4%BA%8C%E7%BA%A7%E5%88%86%E7%BB%84.xml?version=2&modificationDate=1697439392546&api=v2">
+                    下载
+                  </a>
+                </p>
+                <p>
+                  模版对应的预置数据下载：
+                  <a href="https://winwiki.winning.com.cn/download/attachments/82769173/%E7%97%85%E6%88%BF%E6%B1%87%E6%80%BB%E9%A2%86%E8%8D%AF%E5%8D%95.json?version=1&modificationDate=1697439414147&api=v2">
+                    下载
+                  </a>
+                </p>
+              </div>
+            ) : selectedKeys[0] == '3-2' ? (
+              <div>
+                <h1>简单表格(横表&行板)</h1>
+                <h2>行板模版运行效果：</h2>
+                <p>1.案例效果:</p>
+                <Image
+                  width={800}
+                  height={1500}
+                  src={require('../image/简单表格行板案例1.png')}
+                ></Image>
+                <p></p>
+                <Image
+                  width={800}
+                  height={1400}
+                  src={require('../image/简单表格行板案例2.png')}
+                ></Image>
+                <p>
+                  本模版左侧表头固定不变，依据业务数据动态渲染右侧部分，当充满当前页时，触发换页逻辑，换页时，左侧表头仍需打印。
+                </p>
+
+                <h1>行板模版制作：</h1>
+                <p>1. 从导航栏拖拽表格控件到画布： </p>
+                <Image
+                  width={800}
+                  height={450}
+                  src={require('../image/简单表格行板案例3.png')}
+                ></Image>
+                <p>
+                  2.
+                  选择对应单元格为表格添加行板。因表格会循环渲染业务数据，故行板需与业务数据格式对应。可为表格添加多个层级的板，
+                </p>
+                <p>
+                  板设置可直接从非list格式的数据集开始设置。此模版起始数据集为list格式，故行板绑定的数据集从a0开始。
+                </p>
+                <Image
+                  width={800}
+                  height={450}
+                  src={require('../image/简单表格行板案例4.png')}
+                ></Image>
+                <p></p>
+                <Image
+                  width={800}
+                  height={400}
+                  src={require('../image/简单表格行板案例5.png')}
+                ></Image>
+                <p>
+                  3.
+                  此案例使用了分组功能，每页打印功能，补齐空行功能，面板控件，具体使用请参见案例:
+                  <a onClick={() => historyToCase('6-1')}>使用简单分组</a>，
+                  <a onClick={() => historyToCase('5-2')}>每页打印</a>，
+                  <a onClick={() => historyToCase('5-4')}>使用补齐空行</a>，
+                  <a onClick={() => historyToCase('1-4')}>使用面板</a>，
+                </p>
+
+                <p>
+                  本页面示例模版下载：
+                  <a href="https://winwiki.winning.com.cn/download/attachments/82769163/%E8%B7%A8%E9%A1%B5%E3%80%81%E9%A6%96%E8%A1%8C%E6%98%BE%E7%A4%BA%28%E6%AD%A3%E5%B8%B8%29%20%281%29.xml?version=1&modificationDate=1697442556973&api=v2">
+                    下载
+                  </a>
+                </p>
+                <p>
+                  模版对应的预置数据下载：
+                  <a href="https://winwiki.winning.com.cn/download/attachments/82769163/%E7%94%A8%E8%8D%AF%E6%8C%87%E5%AF%BC%E5%8D%95.json?version=1&modificationDate=1697442602377&api=v2">
+                    下载
+                  </a>
+                </p>
+              </div>
+            ) : selectedKeys[0] == '3-3' ? (
+              <div>
+                <h1>简单表格(列表&列板)</h1>
+                <h2>列板模版运行效果：</h2>
+                <p>1.案例效果:</p>
+                <Image
+                  width={800}
+                  height={1600}
+                  src={require('../image/简单表格列板案例1.png')}
+                ></Image>
+                <p></p>
+                <Image
+                  width={800}
+                  height={1500}
+                  src={require('../image/简单表格列板案例2.png')}
+                ></Image>
+                <p>
+                  本模版左侧表头固定不变，依据业务数据动态渲染右侧部分，当充满当前页时，触发换页逻辑，换页时，左侧表头仍需打印。{' '}
+                </p>
+
+                <h1>列板模版制作：</h1>
+                <p>
+                  1. 新建表格后，将表格设置为
+                  "横向延展"，选中表格对应列，右键弹出菜单中选择
+                  "选中单元格添加板"。{' '}
+                </p>
+                <Image
+                  width={800}
+                  height={450}
+                  src={require('../image/简单表格列板案例3.png')}
+                ></Image>
+                <p></p>
+                <Image
+                  width={800}
+                  height={600}
+                  src={require('../image/简单表格列板案例4.png')}
+                ></Image>
+                <p>2. 为列板绑定业务数据集。</p>
+                <Image
+                  width={800}
+                  height={450}
+                  src={require('../image/简单表格列板案例5.png')}
+                ></Image>
+                <p>
+                  3. 此案例使用了每页打印功能，列板具体使用请参见案例:
+                  <a onClick={() => historyToCase('5-2')}>每页打印</a>
+                </p>
+
+                <p>
+                  本页面示例模版下载：
+                  <a href="https://winwiki.winning.com.cn/download/attachments/82769175/%E7%BA%A6%E7%BF%B0%E9%9C%8D%E6%99%AE%E9%87%91%E6%96%AF%E8%B7%8C%E5%80%92%E9%A3%8E%E9%99%A9%E8%AF%84%E4%BC%B0%E9%87%8F%E8%A1%A8.xml?version=1&modificationDate=1697184437816&api=v2">
+                    下载
+                  </a>
+                </p>
+                <p>
+                  模版对应的预置数据下载：
+                  <a href="https://winwiki.winning.com.cn/download/attachments/82769175/%E7%BA%A6%E7%BF%B0%E9%9C%8D%E6%99%AE%E9%87%91%E6%96%AF%E8%B7%8C%E5%80%92%E9%A3%8E%E9%99%A9%E8%AF%84%E4%BC%B0%E9%87%8F%E8%A1%A8.json?version=1&modificationDate=1697184515505&api=v2">
+                    下载
+                  </a>
+                </p>
+              </div>
+            ) : selectedKeys[0] == '4-1' ? (
+              <div>
+                <h1>自动大小、最大行数、最大宽度</h1>
+                <h2>自动大小模版运行效果：</h2>
+                <p>1.案例效果:</p>
+                <Image
+                  width={800}
+                  height={1400}
+                  src={require('../image/自动大小案例1.png')}
+                ></Image>
+                <p>
+                  在本模版"长期医嘱"列，设置了医嘱项"空间不足打到父容器"，一格放不下将触发"换行"操作
+                </p>
+                <Image
+                  width={800}
+                  height={400}
+                  src={require('../image/自动大小案例2.png')}
+                ></Image>
+                <p>
+                  设置了最大行数，则限制最大行数为具体数值；设置了最大宽度，则限制最大宽度为具体数值。
+                </p>
+                <Image
+                  width={800}
+                  height={400}
+                  src={require('../image/自动大小案例3.png')}
+                ></Image>
+                <p>不设置最大行数时，效果如下:</p>
+                <Image
+                  width={800}
+                  height={400}
+                  src={require('../image/自动大小案例4.png')}
+                ></Image>
+                <p></p>
+                <Image
+                  width={800}
+                  height={400}
+                  src={require('../image/自动大小案例5.png')}
+                ></Image>
+                <h1>自动大小模版制作：</h1>
+                <p>
+                  1. 新建模版后，为模版表格控件中的
+                  "标签"控件(当此空间的文本内容预期较多时)，设置自动大小，最大行数，最大宽度属性。
+                </p>
+                <Image
+                  width={800}
+                  height={400}
+                  src={require('../image/自动大小案例6.png')}
+                ></Image>
+                <p>
+                  2. 此模版使用了行板功能，行板功能请详细参考:
+                  简单表格(横表&行板)
+                  ，使用了换行文本功能，换行文本详细参考:换行文本，页缝换行
+                </p>
+
+                <p>
+                  本页面示例模版下载：
+                  <a href="https://winwiki.winning.com.cn/download/attachments/82769159/%E9%95%BF%E6%9C%9F%E5%8C%BB%E5%98%B1%E5%8D%95%28%E6%97%A7%29-0918%20%282%29.xml?version=1&modificationDate=1697444832737&api=v2">
+                    下载
+                  </a>
+                </p>
+                <p>
+                  模版对应的预置数据下载：
+                  <a href="https://winwiki.winning.com.cn/download/attachments/82769159/%E8%87%AA%E5%8A%A8%E5%A4%A7%E5%B0%8F.json?version=1&modificationDate=1697444838360&api=v2">
+                    下载
+                  </a>
+                </p>
+              </div>
+            ) : selectedKeys[0] == '4-2' ? (
+              <div>
+                <h1>换行文本、页缝换行</h1>
+                <h2>换行文本模版运行效果：</h2>
+                <p>1.案例效果:</p>
+                <Image
+                  width={800}
+                  height={600}
+                  src={require('../image/换行案例1.png')}
+                ></Image>
+                <p>
+                  在"日期"单元格一栏使用了换行文本设置，则多行文本的医嘱项出现时，其余同行单元格按照换行文本设置(当位于页缝处时，即为页缝换行)进行展示。
+                </p>
+                此案例设置了换行文本为"所有行展示"。 <p></p>
+                <Image
+                  width={800}
+                  height={450}
+                  src={require('../image/换行案例2.png')}
+                ></Image>
+                <p>未设置"所有行展示"时，效果如下: </p>
+                <Image
+                  width={800}
+                  height={450}
+                  src={require('../image/换行案例3.png')}
+                ></Image>
+                <h1>换行文本模版制作：</h1>
+                <p>
+                  1. 新建模版后，为模版表格控件中的
+                  "标签"控件，设置换行文本属性，当控件对应行其余单元格存在换行的文本时，本单元格换行时按照设置进行展示。
+                </p>
+                <p>页缝换行为页缝处换行样式。</p>
+                <Image
+                  width={800}
+                  height={450}
+                  src={require('../image/换行案例4.png')}
+                ></Image>
+                <p></p>
+                <Image
+                  width={800}
+                  height={450}
+                  src={require('../image/换行案例5.png')}
+                ></Image>
+                <p>
+                  2. 此模版使用了行板功能，行板功能请详细参考
+                  简单表格(横表&行板)
+                </p>
+                <p>
+                  本页面示例模版下载：
+                  <a href="https://winwiki.winning.com.cn/download/attachments/82769161/%E9%95%BF%E6%9C%9F%E5%8C%BB%E5%98%B1%E5%8D%95%28%E6%97%A7%29-0918%20%281%29.xml?version=1&modificationDate=1697443897404&api=v2">
+                    下载
+                  </a>
+                </p>
+                <p>
+                  模版对应的预置数据下载：
+                  <a href="https://winwiki.winning.com.cn/download/attachments/82769161/%E6%8D%A2%E8%A1%8C%E6%96%87%E6%9C%AC.json?version=1&modificationDate=1697443912768&api=v2">
+                    下载
+                  </a>
+                </p>
+              </div>
             ) : selectedKeys[0] == '5-2' ? (
               <div>
                 <h1>每页打印</h1>
@@ -436,7 +983,6 @@ const index = () => {
                   height={1400}
                   src={require('../image/每页打印案例2.png')}
                 ></Image>
-
                 <h1>每页打印模版制作：</h1>
                 <p>1. 新建模版后，页眉和页脚部分默认即为每页打印。 </p>
                 <Image
@@ -452,16 +998,16 @@ const index = () => {
                 ></Image>
                 <p>
                   2.
-                  某些情况需要在业务数据循环时使用每页打印，则需要在模版中循环的业务数据绑定的板对应的板上进行循环设置，设置每页打印，即可实现每页打印的效果。此处打印模式默认是
-                  "只打一次"。
+                  某些情况需要在业务数据循环时使用每页打印，则需要在模版中循环的业务数据绑定的板对应的板上进行循环设置，设置每页打印，
                 </p>
+                即可实现每页打印的效果。此处打印模式默认是"只打一次"。
+                <p></p>
                 <Image
                   width={800}
                   height={400}
                   src={require('../image/每页打印案例5.png')}
                 ></Image>
                 <p>3. 此模版使用了分组功能，分组功能请详细参考 使用简单分组</p>
-
                 <p>
                   本页面示例模版下载：
                   <a href="https://winwiki.winning.com.cn/download/attachments/82769148/%E7%94%A8%E8%8D%AF%E6%8C%87%E5%AF%BC%E5%8D%95.xml?version=1&modificationDate=1697177635561&api=v2">
@@ -471,6 +1017,116 @@ const index = () => {
                 <p>
                   模版对应的预置数据下载：
                   <a href="https://winwiki.winning.com.cn/download/attachments/82769153/%E7%94%A8%E8%8D%AF%E6%8C%87%E5%AF%BC%E5%8D%95%E6%AF%8F%E9%A1%B5%E6%89%93%E5%8D%B0.json?version=2&modificationDate=1697181095543&api=v2">
+                    下载
+                  </a>
+                </p>
+              </div>
+            ) : selectedKeys[0] == '5-3' ? (
+              <div>
+                <h1>循环方向、最大水平、垂直打印设置</h1>
+                <h2>一式多份模版运行效果：</h2>
+                <p>1.案例效果:</p>
+                <Image
+                  width={800}
+                  height={1400}
+                  src={require('../image/循环案例1.png')}
+                ></Image>
+                <p>
+                  一式多份:即一页打印多个表格的情况，此案例设置了一页纵向最多打一次，横向(水平)最多打2次，故出现此效果。
+                </p>
+                <Image
+                  width={800}
+                  height={400}
+                  src={require('../image/循环案例2.png')}
+                ></Image>
+
+                <h1>一式多份打印模版制作：</h1>
+                <p>
+                  1. 新建模版后，在表格的右侧属性:"循环"部分:
+                  进行循环方向，最大水平打印次数，最大垂直打印次数的设置。
+                </p>
+                <Image
+                  width={800}
+                  height={400}
+                  src={require('../image/循环案例3.png')}
+                ></Image>
+                <p>
+                  2.
+                  当内层循环需要控制某次表格最大打印次数时，需在业务循环板上进行最大垂直打印次数的设置。
+                </p>
+                <Image
+                  width={800}
+                  height={400}
+                  src={require('../image/循环案例4.png')}
+                ></Image>
+                <p>3. 此模版使用了每页打印功能，每页打印请参考: 每页打印</p>
+
+                <p>
+                  本页面示例模版下载：
+                  <a href="https://winwiki.winning.com.cn/download/attachments/82769155/%E8%BE%93%E6%B6%B2%E5%8D%A1_2%28%E6%96%B0%29.xml?version=1&modificationDate=1697437555522&api=v2">
+                    下载
+                  </a>
+                </p>
+                <p>
+                  模版对应的预置数据下载：
+                  <a href="https://winwiki.winning.com.cn/download/attachments/82769155/%E8%BE%93%E6%B6%B2%E5%8D%A1%E4%B8%80%E5%BC%8F%E5%A4%9A%E4%BB%BD.json?version=1&modificationDate=1697437617836&api=v2">
+                    下载
+                  </a>
+                </p>
+              </div>
+            ) : selectedKeys[0] == '5-4' ? (
+              <div>
+                <h1>使用补齐空行</h1>
+                <h2>补齐空行模版运行效果：</h2>
+                <p>1.案例效果:</p>
+                <Image
+                  width={800}
+                  height={1400}
+                  src={require('../image/补齐案例1.png')}
+                ></Image>
+                <p>
+                  某些情况下，页面为填充满时，需要填充空格或者空行到页尾，此时需要用到补齐空行。
+                </p>
+
+                <h1>补齐空行模版制作：</h1>
+                <p>
+                  1.
+                  新建模版后，在表格模版选中最后位置板，将补齐空行属性设置为"是"。
+                </p>
+                <Image
+                  width={800}
+                  height={400}
+                  src={require('../image/补齐案例2.png')}
+                ></Image>
+                <p>
+                  2.
+                  当行板内表格需要显示边框时，可以使用自定义脚本或者直接将补齐空行处的空行设置展示边框线。本例中使用了脚本动态设置边框线。
+                </p>
+                <Image
+                  width={800}
+                  height={400}
+                  src={require('../image/补齐案例3.png')}
+                ></Image>
+                <p></p>
+                <Image
+                  width={800}
+                  height={400}
+                  src={require('../image/补齐案例4.png')}
+                ></Image>
+                <p>
+                  3.
+                  此模版使用了脚本设置边框功能，脚本设置边框请参考:动态设置边框{' '}
+                </p>
+
+                <p>
+                  本页面示例模版下载：
+                  <a href="https://winwiki.winning.com.cn/download/attachments/82770624/%E7%97%85%E6%88%BF%E6%B1%87%E6%80%BB%E9%A2%86%E8%8D%AF%E5%8D%95-%E6%8C%89%E8%AF%B7%E9%A2%86%E7%A7%91%E5%AE%A4-%E8%8D%AF%E5%93%81ID%E4%BA%8C%E7%BA%A7%E5%88%86%E7%BB%84%20%281%29.xml?version=1&modificationDate=1697440951695&api=v2">
+                    下载
+                  </a>
+                </p>
+                <p>
+                  模版对应的预置数据下载：
+                  <a href="https://winwiki.winning.com.cn/download/attachments/82770624/%E7%97%85%E6%88%BF%E6%B1%87%E6%80%BB%E9%A2%86%E8%8D%AF%E5%8D%95.json?version=1&modificationDate=1697440956244&api=v2">
                     下载
                   </a>
                 </p>
@@ -496,7 +1152,10 @@ const index = () => {
                 </p>
                 <p>
                   业务数据一共有4条药品指导数据， 就诊标识为310486398463459328
-                  的双鞭呼延灼一共有三条药品记录；就诊标识为310486398463459329的双鞭呼延灼一共有一条药品记录，按照床号排序后，得到上述渲染效果。
+                  的双鞭呼延灼一共有三条药品记录；
+                </p>
+                <p>
+                  就诊标识为310486398463459329的双鞭呼延灼一共有一条药品记录，按照床号排序后，得到上述渲染效果。
                 </p>
 
                 <h1>简单分组模版制作：</h1>
@@ -520,7 +1179,10 @@ const index = () => {
                 </p>
                 <p>
                   2.
-                  在需要对分组结果的明细进行遍历时，需在分组节点下创建BEAN数据集，以模拟分组明细(item数据集为系统默认，在分组建立后，创建item数据集才可通过)。此模版需要对分组之后的结果进行遍历，故新建了item数据集。
+                  在需要对分组结果的明细进行遍历时，需在分组节点下创建BEAN数据集，以模拟分组明细(item数据集为系统默认，在分组建立后，
+                </p>
+                <p>
+                  创建item数据集才可通过)。此模版需要对分组之后的结果进行遍历，故新建了item数据集。
                 </p>
                 <Image
                   width={800}
@@ -616,7 +1278,10 @@ const index = () => {
                 <p>点击确定后，第一级分组完成</p>
                 <p>
                   2.
-                  在需要进行第二级分组时，需在第一级分组节点下创建BEAN数据集，以模拟分组明细，在分组明细的基础上，再进行第一步分组操作。(item数据集为系统默认，在第一级分组建立后，创建item数据集才可通过)
+                  在需要进行第二级分组时，需在第一级分组节点下创建BEAN数据集，以模拟分组明细，在分组明细的基础上，再进行第一步分组操作。
+                </p>
+                <p>
+                  (item数据集为系统默认，在第一级分组建立后，创建item数据集才可通过)
                 </p>
                 <Image
                   width={800}
@@ -630,7 +1295,10 @@ const index = () => {
                   src={require('../image/多级分组案例6.png')}
                 ></Image>
                 <p>
-                  再在新建的item数据集上进行与第一步一致的分组操作，如需遍历第二级分组下的明细，则仍需要在第二级分组下新建item数据集，用以在画布上绑板。此模版为需要遍历二级分组下明细的情况，故再次新建了item数据集，并在画布处进行了绑定。
+                  再在新建的item数据集上进行与第一步一致的分组操作，如需遍历第二级分组下的明细，则仍需要在第二级分组下新建item数据集，
+                </p>
+                <p>
+                  用以在画布上绑板。此模版为需要遍历二级分组下明细的情况，故再次新建了item数据集，并在画布处进行了绑定。
                 </p>
                 <Image
                   width={800}
@@ -756,7 +1424,10 @@ const index = () => {
                 ></Image>
                 <p>
                   3.
-                  添加好数据集之后，为横表添加行板，为行板绑定list格式的数据集，将使得渲染时，按照业务数据行进行横向渲染，为列表添加列板，为列板绑定list格式的数据集，将使得渲染时，按照业务数据进行纵向渲染；
+                  添加好数据集之后，为横表添加行板，为行板绑定list格式的数据集，将使得渲染时，按照业务数据行进行横向渲染，
+                </p>
+                <p>
+                  为列表添加列板，为列板绑定list格式的数据集，将使得渲染时，按照业务数据进行纵向渲染；
                 </p>
                 <div>
                   <Image
@@ -804,9 +1475,14 @@ const index = () => {
                 <p>
                   2.
                   设计好页面之后，如后续页面需跟随首页打印的情况，如第一步中示例
-                  ： 首页绑定了a0
-                  数据集,a0数据集为列表类型的数据，a0数据集在循环时，后续模版页需跟随此页打印，即如首页当前循环到药品A，
-                  则后续多页模版也需按照当前药品A进行指定模版渲染（渲染内容为药品A的信息），后续页面渲染完成后，再开始药品B的渲染...如此循环往复。
+                  ： 首页绑定了a0 数据集，a0数据集为列表类型的数据，
+                </p>
+                <p>
+                  a0数据集在循环时，后续模版页需跟随此页打印，即如首页当前循环到药品A，
+                  则后续多页模版也需按照当前药品A进行指定模版渲染
+                </p>
+                <p>
+                  （渲染内容为药品A的信息），后续页面渲染完成后，再开始药品B的渲染...如此循环往复。
                 </p>
                 <p>
                   此种情况需设置跟随打印的行板名称，如案例模版中跟随打印的模版名称即为a0,对应到模版文件即为如下属性：
@@ -878,6 +1554,8 @@ const index = () => {
                 <p>
                   --
                   如为补行续打，则补行数据处需返回printInsert字段，且值需为true，上述1,2步骤仍需正常设置;
+                </p>
+                <p style={{ paddingLeft: 14 }}>
                   补行所在页前续页面不显示，补行所在页及后续页按续打显示逻辑正常返回
                 </p>
                 <p>3. 打印时发送到混合框架即可按续打效果进行打印。</p>
@@ -913,8 +1591,9 @@ const index = () => {
                   src={require('../image/补打案例1.png')}
                 ></Image>
                 <p>
-                  打印预览时为此效果，真正打印时仅补充打印蓝色遮罩框内的内容+续打红色遮罩框后面的部分，续打遮罩框内的内容将被抹去，但补打遮罩框内的内容将打印。
+                  打印预览时为此效果，真正打印时仅补充打印蓝色遮罩框内的内容+续打红色遮罩框后面的部分，续打遮罩框内的内容将被抹去，
                 </p>
+                <p>但补打遮罩框内的内容将打印。</p>
                 <h1>补打模版制作：</h1>
                 <p>1. 新建模版正常设计打印模版。</p>
                 <p>2. 补打的情况可能分以下几种情况:</p>
@@ -924,7 +1603,10 @@ const index = () => {
                 <p>
                   {' '}
                   与续打不同，
-                  补打将借助打印设计器事件代码脚本动态控制。需在对应控件的init事件中，控制当前控件的delLineStyle属性+当前控件的printStyle.fillPrinted属性共同实现补打文本，补打删除线，补打文本+删除线三种补丁情况。
+                  补打将借助打印设计器事件代码脚本动态控制。需在对应控件的init事件中，控制当前控件的delLineStyle属性+当前控件
+                </p>
+                <p>
+                  的printStyle.fillPrinted属性共同实现补打文本，补打删除线，补打文本+删除线三种补丁情况。
                 </p>
                 <p>实现补打文本控制脚本写法如下:</p>
                 <AceEditor
@@ -984,7 +1666,10 @@ const index = () => {
                 <h1>套打实现</h1>
                 <h2>套打定义：</h2>
                 <p>
-                  套打，即使用已经设计好页面格式的打印纸张进行打印，如已经印制好表格的纸张，插入打印机进行内容的打印。此种打印预览时可以看到套打背景，但实际打印时，套打背景将被抹去。
+                  套打，即使用已经设计好页面格式的打印纸张进行打印，如已经印制好表格的纸张，插入打印机进行内容的打印。
+                </p>
+                <p>
+                  此种打印预览时可以看到套打背景，但实际打印时，套打背景将被抹去。
                 </p>
                 <p>
                   注意:
@@ -1041,7 +1726,10 @@ const index = () => {
                 <h1>回调数据</h1>
                 <h2>业务数据元信息回调:</h2>
                 <p>
-                  某些业务场景下，打印控件渲染的信息需要返回给业务，如当前医嘱项数据打印在了第几页，第几行，渲染了几行，每行数据分别是什么，后端用以记录或者标记打印历史信息以备案查询或者用于其它。
+                  某些业务场景下，打印控件渲染的信息需要返回给业务，如当前医嘱项数据打印在了第几页，第几行，渲染了几行，
+                </p>
+                <p>
+                  每行数据分别是什么，后端用以记录或者标记打印历史信息以备案查询或者用于其它。
                 </p>
 
                 <h1>业务数据元信息回调模版运行效果：</h1>

@@ -284,6 +284,82 @@ export default function HomePage() {
     },
   ];
 
+  const dataSource1 = [
+    {
+      key: '1',
+      name: 'sessionStorageAuthorization',
+      description: '业务用户登录信息，业务系统里的 sessionStorage里的',
+    },
+    {
+      key: '1-1',
+      name: 'sessionStorageUserInfo',
+      description:
+        '业务用户登录后的用户信息业务系统里的 sessionStorage里的userInfo字段(登录后写入)，用以获取租户信息 形如: {"userHopitalSOID": "256181"}',
+    },
+    {
+      key: '2',
+      name: 'id',
+      description: '模板id',
+    },
+    {
+      key: '2-1',
+      name: 'code',
+      description: '模板分类编码(业务定义)',
+    },
+    {
+      key: '3',
+      name: 'businessData',
+      description: '业务数据',
+    },
+    {
+      key: '4',
+      name: 'callBackFunc',
+      description:
+        '回调函数，在指定步长转换完成后sdk调用，参数分别是(svg, startPageNo, ending, percent, identifier)',
+    },
+    {
+      key: '5',
+      name: 'transferStep',
+      description:
+        '同时渲染模板个数步长,即转换几页之后就开始渲染并执行回调方法',
+    },
+    {
+      key: '6',
+      name: 'urlPrefix',
+      description: '环境对应的交付平台前缀，一般为业务host+ ‘wxp-designer’',
+    },
+    {
+      key: '7',
+      name: 'identifier',
+      description:
+        '一个固定字符串，业务传进来，回调的时候传回去，避免回调没结束',
+    },
+    {
+      key: '8',
+      name: 'callbackData',
+      description: '是否返回页尾最后一行叶子节点数据',
+    },
+    {
+      key: '9',
+      name: 'throwCallBack',
+      description: '异常抛出的回调',
+    },
+  ];
+  const columns1 = [
+    {
+      title: '参数',
+      dataIndex: 'name',
+      key: 'name',
+      width: '20%',
+    },
+    {
+      title: '描述',
+      dataIndex: 'description',
+      key: 'description',
+      width: '80%',
+    },
+  ];
+
   const onSelect = (selectedKeys: any, info: any) => {
     if (selectedKeys.length !== 0) {
       setSelectedKeys(selectedKeys);
@@ -353,7 +429,10 @@ export default function HomePage() {
                   src={require('../image/入门5.png')}
                 ></Image>
                 <p>
-                  5.在画布上点击相应控件，控件呈选中状态，此时可右键单击，设置控件属性，或在画布右侧属性区为控件调整属性,如线条控件右侧属性区分区数设置为4则画布会展示如下效果:
+                  5.在画布上点击相应控件，控件呈选中状态，此时可右键单击，设置控件属性，或在画布右侧属性区为控件调整
+                </p>
+                <p>
+                  属性,如线条控件右侧属性区分区数设置为4则画布会展示如下效果:
                 </p>
                 <Image
                   width={300}
@@ -511,9 +590,35 @@ export default function HomePage() {
                 </p>
               </div>
             ) : selectedKeys[0] == '2-1' ? (
-              <div></div>
+              <div>
+                <h1>撤销回退</h1>
+                <Image
+                  width={300}
+                  height={200}
+                  src={require('../image/撤销回退.jpg')}
+                ></Image>
+                <p>针对用户最近十步的所有操作，支持撤回操作与重做操作。</p>
+                <p>超过十步的内容会被最近十步的操作所覆盖</p>
+              </div>
             ) : selectedKeys[0] == '2-2' ? (
-              <div></div>
+              <div>
+                <h1>新增页面删除页面</h1>
+                <Image
+                  width={300}
+                  height={200}
+                  src={require('../image/新增删除页面.jpg')}
+                ></Image>
+                <p></p>
+                <Image
+                  width={300}
+                  height={200}
+                  src={require('../image/新增删除页面1.png')}
+                ></Image>
+                <p></p>
+                <p>
+                  通过点击新增页面/删除页面增加多一页模板，渲染模版的时候将会以新增的所有页面为整体来进行循环
+                </p>
+              </div>
             ) : selectedKeys[0] == '2-3' ? (
               <div>
                 <h1>新建、文件、保存</h1>
@@ -547,11 +652,80 @@ export default function HomePage() {
                 </p>
               </div>
             ) : selectedKeys[0] == '2-4' ? (
-              <div></div>
+              <div>
+                <h1>模板预览</h1>
+                <Image
+                  width={300}
+                  height={200}
+                  src={require('../image/模版预览1.jpg')}
+                ></Image>
+                <p>设计器提供了三种预览模式：预置预览、模拟预览、打印预览</p>
+                <h2>预置预览：</h2>
+                <p>
+                  提供功能可使用户提前为某些模版保存数据，点击
+                  <span style={{ color: '' }}>预置预览</span>
+                  可直接调取预置好的数据进行打印预览操作
+                </p>
+                <h2>模拟预览：</h2>
+                <p>
+                  提供功能可使用户自定义模版数据，点击提交使用当前输入的数据进行打印预览操作
+                </p>
+                <p>此数据为一次性，使用之后需重新提供数据进行预览操作</p>
+                <p>如需多次调试模版，建议使用预置数据和预置预览功能</p>
+                <h2>打印预览</h2>
+                <p>按照模版内定义的数据源去请求接口获取数据，再进行预览操作</p>
+              </div>
             ) : selectedKeys[0] == '2-5' ? (
-              <div></div>
+              <div>
+                <h1>置前置后</h1>
+                <Image
+                  width={300}
+                  height={200}
+                  src={require('../image/置前置后.jpg')}
+                ></Image>
+                <p>置前置后功能是将画布内组件的垂直方向层级进行改动</p>
+              </div>
             ) : selectedKeys[0] == '2-6' ? (
-              <div></div>
+              <div>
+                <h1>页面设置</h1>
+                <Image
+                  width={300}
+                  height={200}
+                  src={require('../image/页面设置.jpg')}
+                ></Image>
+                <p>
+                  页面设置功能包括：纸张类型、纸张方向、进纸方向、页边距以及页面页脚功能
+                </p>
+                <h1>纸张类型</h1>
+                <p>设计器预置了十几种常用纸张类型以及尺寸大小可供选择</p>
+                <p>
+                  同时也支持用户自定义纸张大小，使用自定义纸张时只需讲纸张类型选为自定义即可
+                </p>
+                <p>
+                  <b>特殊纸张</b>
+                  ：指【小票（瓶贴）】和【打孔纸】相关纸张类型打印。通常处理连续纸张打印，即
+                </p>
+                高度跟随内容多少而变化，最大为设置的纸张尺寸。
+                <p></p>
+                <h1>方向</h1>
+                <p>指纸张方向，通常与打印相结合使用。</p>
+                <h1>进纸方向</h1>
+                <p>
+                  指放入打印机时纸张的方向，短边进入为纵向，长边进入为横向。
+                </p>
+                <h1>页边距</h1>
+                <p>控制画布与边缘的四个方向的距离长度</p>
+                <p>注意：由于部分打印机不支持无边距，所以预留不能太小。</p>
+                <p>
+                  建议：普通打印 即 A3、A4、B5、B6 纸张预留不得低于
+                  5mm。瓶贴、标签打印则无要求。
+                </p>
+                <h1>页眉页脚</h1>
+                <p>控制画布页眉页脚是否显示</p>
+                <p>
+                  页眉、页脚内容每页打印都会展示。通常设置模板标题、页码、备注信息以及每页相同不发生变化的内容。
+                </p>
+              </div>
             ) : selectedKeys[0] == '3' ? (
               <div>
                 <h1>数据集树相关</h1>
@@ -688,9 +862,92 @@ export default function HomePage() {
                 </p>
               </div>
             ) : selectedKeys[0] == '5' ? (
-              <div></div>
+              <div>
+                <h1>模版树相关</h1>
+                <p>一级树节点不支持操作，为默认内容</p>
+                <Image
+                  width={800}
+                  height={500}
+                  src={require('../image/模板树1.jpg')}
+                ></Image>
+                <p>二级树节点支持新建自定义文件夹以及刷新操作</p>
+                <Image
+                  width={800}
+                  height={500}
+                  src={require('../image/模板树2.jpg')}
+                ></Image>
+                <p>三级文件夹支持更多功能的操作：</p>
+                <p>新建模板：在当前文件夹下创建一个新的空模版</p>
+                <p>新建文件夹：在当前文件夹下创建一个新的文件夹</p>
+                <p>重命名：重命名当前文件夹名称</p>
+                <p>删除文件夹 ：删除当前文件夹</p>
+                <p>上传文件：将本地XML模板上传至当前文件夹下</p>
+                <p>刷新：刷新当前模板树</p>
+                <Image
+                  width={800}
+                  height={500}
+                  src={require('../image/模板树3.jpg')}
+                ></Image>
+                <p>模版的右键操作列表：</p>
+                <p>重命名：重命名当前模板的名称</p>
+                <p>删除模板：删除当前模板</p>
+                <p>上传文件：将本地XML模板上传至当前文件夹下</p>
+                <p>下载文件：讲当前XML模板下载至本地电脑内</p>
+                <p>刷新：刷新当前模板树</p>
+                <p>创建副本：将当前模板以一个新的名字创建一个相同的副本模板</p>
+              </div>
             ) : selectedKeys[0] == '6' ? (
-              <div></div>
+              <div>
+                <h1>模板运行态API</h1>
+                <h2>提供四种API进行多情况下的调用</h2>
+                <h3>previewWithCallBack(参数顺序不可改变)</h3>
+                <p>
+                  function previewWithCallBack( sessionStorageAuthorization, id,
+                  businessData, callBackFunc,
+                </p>
+                <p>transferStep, urlPrefix, identifier, callbackData )</p>
+                <h3>previewByCodeWithCallBack(参数顺序不可改变)</h3>
+                <p>
+                  function previewByCodeWithCallBack( sessionStorageUserInfo,
+                  sessionStorageAuthorization, code, businessData, callBackFunc,
+                </p>
+                <p>
+                  transferStep, urlPrefix?, identifier, throwCallBack,
+                  callbackData)
+                </p>
+                <h3>previewWithFetchTemplateByCode(参数顺序不可改变)</h3>
+                <p>
+                  function previewWithFetchTemplateByCode(
+                  sessionStorageUserInfo, sessionStorageAuthorization, code,
+                  urlPrefix, callbackData)
+                </p>
+                <h3>
+                  previewWithFetchTemplateByCodeTransferStep(参数顺序不可改变)
+                </h3>
+                <p>
+                  function previewWithFetchTemplateByCodeTransferStep(
+                  reportXML, businessData, callBackFunc, transferStep,
+                  identifier, callbackData)
+                </p>
+
+                <p>参数说明：</p>
+                <Table
+                  dataSource={dataSource1}
+                  columns={columns1}
+                  pagination={false}
+                  style={{ width: 1000 }}
+                  bordered
+                />
+                <p>
+                  更多详细内容请跳转至项目对接示例DEMO内查看{' '}
+                  <a
+                    href="https://winwiki.winning.com.cn/pages/viewpage.action?pageId=55116755"
+                    target="_blank"
+                  >
+                    点此跳转
+                  </a>
+                </p>
+              </div>
             ) : selectedKeys[0] == '8' ? (
               <div>
                 <h1>混合框架打印对接</h1>
