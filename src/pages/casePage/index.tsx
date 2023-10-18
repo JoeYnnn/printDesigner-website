@@ -172,7 +172,6 @@ const index = () => {
   const [autoExpandParent, setAutoExpandParent] = useState(true);
 
   useEffect(() => {
-    console.log(searchParams.get('key'));
     let key: any = searchParams.get('key');
 
     if (searchParams.get('key')) {

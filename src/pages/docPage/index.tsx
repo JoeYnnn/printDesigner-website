@@ -901,12 +901,14 @@ export default function HomePage() {
                 <h1>模板运行态API</h1>
                 <h2>提供四种API进行多情况下的调用</h2>
                 <h3>previewWithCallBack(参数顺序不可改变)</h3>
+                <b>依据打印设计器内部id异步预览API</b>
                 <p>
                   function previewWithCallBack( sessionStorageAuthorization, id,
                   businessData, callBackFunc,
                 </p>
                 <p>transferStep, urlPrefix, identifier, callbackData )</p>
                 <h3>previewByCodeWithCallBack(参数顺序不可改变)</h3>
+                <b>使用业务编码与打印设计器映射异步预览API</b>
                 <p>
                   function previewByCodeWithCallBack( sessionStorageUserInfo,
                   sessionStorageAuthorization, code, businessData, callBackFunc,
@@ -916,6 +918,7 @@ export default function HomePage() {
                   callbackData)
                 </p>
                 <h3>previewWithFetchTemplateByCode(参数顺序不可改变)</h3>
+                <b>使用业务编码与打印设计器映射获取打印模版内容</b>
                 <p>
                   function previewWithFetchTemplateByCode(
                   sessionStorageUserInfo, sessionStorageAuthorization, code,
@@ -924,6 +927,7 @@ export default function HomePage() {
                 <h3>
                   previewWithFetchTemplateByCodeTransferStep(参数顺序不可改变)
                 </h3>
+                <b>直接使用打印模版内容进行异步预览 </b>
                 <p>
                   function previewWithFetchTemplateByCodeTransferStep(
                   reportXML, businessData, callBackFunc, transferStep,
