@@ -11,6 +11,6 @@ export default defineConfig({
   title: '打印模版设计器',
   npmClient: 'yarn',
   history: { type: 'hash' },
-  base: '/',
-  publicPath: '/',
+  base: '/web-wxp-print-portal',
+  publicPath: '/web-wxp-print-portal',
 });
