@@ -1,0 +1,100 @@
+{
+    "rehabInfo": [
+        {
+            "rehabilitationFilingReqId": "317314077831985152",
+            "rehabilitationFilingReqNo": "KFBA202309070003",
+            "hospitalAreaId": "991797",
+            "encounterTypeCode": "138138",
+            "encounterTypeDesc": "门诊",
+            "requestDeptId": "261662451488372752",
+            "requestDeptNo": "15",
+            "requestDeptName": "骨科",
+            "personName": "王沐橙",
+            "personId": "156595422440226821",
+            "bizRoleInsuranceId": "16353002332755300",
+            "socialSecurityNo": "2021038817",
+            "idcardNo": "340721196809235169",
+            "telephone": "15910797171",
+            "diseaseDiagnosisCode": "11111",
+            "diseaseDiagnosisDesc": "支气管肺炎",
+            "medicalInsuranceCode": "399558461",
+            "medicalInsuranceName": "门诊自费",
+            "filingApprovalNo": null,
+            "approvalTimes": null,
+            "filingStartAt": null,
+            "filingEndAt": null,
+            "feedback": null,
+            "filingStatus": "399660048",
+            "reviewerId": null,
+            "caseNo": "001",
+            "commitAt": null,
+            "reviewerAt": null,
+            "rehabFileTreatmentItemList": [
+                {
+                    "rehabFileTreatmentItemId": "317317762964860928",
+                    "rehabilitationFilingReqId": "317314077831985152",
+                    "rehabTreatmentItemCode": "10001",
+                    "rehabTreatmentItemDesc": "心率市场",
+                    "requestedQty": 80
+                },
+                {
+                    "rehabFileTreatmentItemId": "317317765112344576",
+                    "rehabilitationFilingReqId": "317314077831985152",
+                    "rehabTreatmentItemCode": "10002",
+                    "rehabTreatmentItemDesc": "心率市场_2",
+                    "requestedQty": 90
+                }
+            ],
+            "rehabFileTreatmentItemCheckboxes": "{text:'', children:[{value:'10001', text:'心率市场'},{value:'10002', text:'心率市场_2'},{value:'10003', text:'心率市场_3'}]}",
+            "rehabTreatmentItemCodes": "10001,10002"
+        },
+        {
+            "rehabilitationFilingReqId": "317314077831985152",
+            "rehabilitationFilingReqNo": "KFBA202309070003",
+            "hospitalAreaId": "991797",
+            "encounterTypeCode": "138138",
+            "encounterTypeDesc": "门诊",
+            "requestDeptId": "261662451488372752",
+            "requestDeptNo": "15",
+            "requestDeptName": "骨科",
+            "personName": "王沐橙2",
+            "personId": "156595422440226821",
+            "bizRoleInsuranceId": "16353002332755300",
+            "socialSecurityNo": "2021038817",
+            "idcardNo": "340721196809235169",
+            "telephone": "15910797171",
+            "diseaseDiagnosisCode": "11111",
+            "diseaseDiagnosisDesc": "支气管肺炎",
+            "medicalInsuranceCode": "399558461",
+            "medicalInsuranceName": "门诊自费",
+            "filingApprovalNo": null,
+            "approvalTimes": null,
+            "filingStartAt": null,
+            "filingEndAt": null,
+            "feedback": null,
+            "filingStatus": "399660048",
+            "reviewerId": null,
+            "caseNo": "001",
+            "commitAt": null,
+            "reviewerAt": null,
+            "rehabFileTreatmentItemList": [
+                {
+                    "rehabFileTreatmentItemId": "317317762964860928",
+                    "rehabilitationFilingReqId": "317314077831985152",
+                    "rehabTreatmentItemCode": "10001",
+                    "rehabTreatmentItemDesc": "心率市场",
+                    "requestedQty": 80
+                },
+                {
+                    "rehabFileTreatmentItemId": "317317765112344576",
+                    "rehabilitationFilingReqId": "317314077831985152",
+                    "rehabTreatmentItemCode": "10002",
+                    "rehabTreatmentItemDesc": "心率市场_2",
+                    "requestedQty": 90
+                }
+            ],
+            "rehabFileTreatmentItemCheckboxes": "{text:'', children:[{value:'10001', text:'心率市场'},{value:'10002', text:'心率市场_2'},{value:'10003', text:'心率市场_3刘晓勇刘晓勇刘晓勇刘晓勇刘晓勇刘晓勇刘晓勇刘晓勇刘晓勇刘晓勇'}]}",
+            "rehabTreatmentItemCodes": "10001,10002"
+        }
+    ]
+}

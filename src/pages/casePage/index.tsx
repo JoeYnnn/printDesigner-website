@@ -236,6 +236,154 @@ const index = () => {
     setSearchParams({ key });
   };
 
+  const download = (type: any) => {
+    const a = document.createElement('a');
+    if (type == '1-0') {
+      a.href = require('../../public/线条.xml');
+      a.download = '线条.xml';
+    } else if (type == '1-1') {
+      a.href = require('../../public/文本框.xml');
+      a.download = '文本框.xml';
+    } else if (type == '1-2') {
+      a.href = require('../../public/复选框.xml');
+      a.download = '复选框.xml';
+    } else if (type == '1-3') {
+      a.href = require('../../public/图片.xml');
+      a.download = '图片.xml';
+    } else if (type == '1-4') {
+      a.href = require('../../public/面板.xml');
+      a.download = '面板.xml';
+    } else if (type == '2-1') {
+      a.href = require('../../public/动态设置边框.xml');
+      a.download = '动态设置边框.xml';
+    } else if (type == '2-2') {
+      a.href = require('../../public/表格合计.xml');
+      a.download = '表格合计.xml';
+    } else if (type == '3-2') {
+      a.href = require('../../public/简单表格(横表&行板).xml');
+      a.download = '简单表格(横表&行板).xml';
+    } else if (type == '3-3') {
+      a.href = require('../../public/简单表格(列表&列板).xml');
+      a.download = '简单表格(列表&列板).xml';
+    } else if (type == '4-1') {
+      a.href = require('../../public/自动大小、最大行数、最大宽度.xml');
+      a.download = '自动大小、最大行数、最大宽度.xml';
+    } else if (type == '4-2') {
+      a.href = require('../../public/换行文本、页缝换行.xml');
+      a.download = '换行文本、页缝换行.xml';
+    } else if (type == '5-2') {
+      a.href = require('../../public/每页打印.xml');
+      a.download = '每页打印.xml';
+    } else if (type == '5-3') {
+      a.href = require('../../public/循环方向、最大水平、垂直打印设置.xml');
+      a.download = '循环方向、最大水平、垂直打印设置.xml';
+    } else if (type == '5-4') {
+      a.href = require('../../public/补齐空行.xml');
+      a.download = '补齐空行.xml';
+    } else if (type == '6-1') {
+      a.href = require('../../public/简单分组.xml');
+      a.download = '简单分组.xml';
+    } else if (type == '6-2') {
+      a.href = require('../../public/多级分组.xml');
+      a.download = '多级分组.xml';
+    } else if (type == '7') {
+      a.href = require('../../public/交叉报表.xml');
+      a.download = '交叉报表.xml';
+    } else if (type == '8') {
+      a.href = require('../../public/多页模板.xml');
+      a.download = '多页模板.xml';
+    } else if (type == '9-1') {
+      a.href = require('../../public/续打实现.xml');
+      a.download = '续打实现.xml';
+    } else if (type == '9-2') {
+      a.href = require('../../public/补打实现.xml');
+      a.download = '补打实现.xml';
+    } else if (type == '9-3') {
+      a.href = require('../../public/套打实现.xml');
+      a.download = '套打实现.xml';
+    } else if (type == '9-4') {
+      a.href = require('../../public/回调数据.xml');
+      a.download = '回调数据.xml';
+    }
+
+    a.click();
+    a.remove();
+  };
+
+  const downloadJSON = (type: any) => {
+    const a = document.createElement('a');
+    if (type == '1-0') {
+      a.href = require('../../public/线条.json');
+      a.download = '线条.json';
+    } else if (type == '1-1') {
+      a.href = require('../../public/文本框.json');
+      a.download = '文本框.json';
+    } else if (type == '1-2') {
+      a.href = require('../../public/复选框.json');
+      a.download = '复选框.json';
+    } else if (type == '1-3') {
+      a.href = require('../../public/图片.json');
+      a.download = '图片.json';
+    } else if (type == '1-4') {
+      a.href = require('../../public/面板.json');
+      a.download = '面板.json';
+    } else if (type == '2-1') {
+      a.href = require('../../public/动态设置边框.json');
+      a.download = '动态设置边框.json';
+    } else if (type == '2-2') {
+      a.href = require('../../public/表格合计.json');
+      a.download = '表格合计.json';
+    } else if (type == '3-2') {
+      a.href = require('../../public/简单表格(横表&行板).json');
+      a.download = '简单表格(横表&行板).json';
+    } else if (type == '3-3') {
+      a.href = require('../../public/简单表格(列表&列板).json');
+      a.download = '简单表格(列表&列板).json';
+    } else if (type == '4-1') {
+      a.href = require('../../public/自动大小、最大行数、最大宽度.json');
+      a.download = '自动大小、最大行数、最大宽度.json';
+    } else if (type == '4-2') {
+      a.href = require('../../public/换行文本、页缝换行.json');
+      a.download = '换行文本、页缝换行.json';
+    } else if (type == '5-2') {
+      a.href = require('../../public/每页打印.json');
+      a.download = '每页打印.json';
+    } else if (type == '5-3') {
+      a.href = require('../../public/循环方向、最大水平、垂直打印设置.json');
+      a.download = '循环方向、最大水平、垂直打印设置.json';
+    } else if (type == '5-4') {
+      a.href = require('../../public/补齐空行.json');
+      a.download = '补齐空行.json';
+    } else if (type == '6-1') {
+      a.href = require('../../public/简单分组.json');
+      a.download = '简单分组.json';
+    } else if (type == '6-2') {
+      a.href = require('../../public/多级分组.json');
+      a.download = '多级分组.json';
+    } else if (type == '7') {
+      a.href = require('../../public/交叉报表.json');
+      a.download = '交叉报表.json';
+    } else if (type == '8') {
+      a.href = require('../../public/多页模板.json');
+      a.download = '多页模板.json';
+    } else if (type == '9-1') {
+      a.href = require('../../public/续打实现.json');
+      a.download = '续打实现.json';
+    } else if (type == '9-2') {
+      a.href = require('../../public/补打实现.json');
+      a.download = '补打实现.json';
+    } else if (type == '9-3') {
+      a.href = require('../../public/套打实现.json');
+      a.download = '套打实现.json';
+    } else if (type == '9-4') {
+      a.href = require('../../public/回调数据.json');
+      a.download = '回调数据.json';
+    }
+
+    a.click();
+    a.remove();
+  };
+
   return (
     <div className={styles.indexContent}>
       <div className={styles.componentContent1}>
@@ -309,15 +457,11 @@ const index = () => {
                   ></Image>
                   <p>
                     本页面示例模版下载：
-                    <a href="https://winwiki.winning.com.cn/download/attachments/82769175/%E7%BA%A6%E7%BF%B0%E9%9C%8D%E6%99%AE%E9%87%91%E6%96%AF%E8%B7%8C%E5%80%92%E9%A3%8E%E9%99%A9%E8%AF%84%E4%BC%B0%E9%87%8F%E8%A1%A8.xml?version=1&modificationDate=1697184437816&api=v2">
-                      下载
-                    </a>
+                    <a onClick={() => download('1-0')}>下载</a>
                   </p>
                   <p>
                     模版对应的预置数据下载：
-                    <a href="https://winwiki.winning.com.cn/download/attachments/82769175/%E7%BA%A6%E7%BF%B0%E9%9C%8D%E6%99%AE%E9%87%91%E6%96%AF%E8%B7%8C%E5%80%92%E9%A3%8E%E9%99%A9%E8%AF%84%E4%BC%B0%E9%87%8F%E8%A1%A8.json?version=1&modificationDate=1697184515505&api=v2">
-                      下载
-                    </a>
+                    <a onClick={() => downloadJSON('1-0')}>下载</a>
                   </p>
                 </div>
               </div>
@@ -373,15 +517,11 @@ const index = () => {
 
                   <p>
                     本页面示例模版下载：
-                    <a href="https://winwiki.winning.com.cn/download/attachments/82769177/%E9%95%BF%E6%9C%9F%E5%8C%BB%E5%98%B1%E5%8D%95%28%E6%97%A7%29-0918%20%284%29.xml?version=1&modificationDate=1697445787613&api=v2">
-                      下载
-                    </a>
+                    <a onClick={() => download('1-1')}>下载</a>
                   </p>
                   <p>
                     模版对应的预置数据下载：
-                    <a href="https://winwiki.winning.com.cn/download/attachments/82769177/%E6%96%87%E6%9C%AC%E6%8E%A7%E4%BB%B6%E4%B8%9A%E5%8A%A1%E6%95%B0%E6%8D%AE.json?version=1&modificationDate=1697445799729&api=v2">
-                      下载
-                    </a>
+                    <a onClick={() => downloadJSON('1-1')}>下载</a>
                   </p>
                 </div>
               </div>
@@ -441,15 +581,11 @@ const index = () => {
                 ></Image>
                 <p>
                   本页面示例模版下载：
-                  <a href="https://winwiki.winning.com.cn/download/attachments/82769179/%E5%9F%BA%E6%9C%AC%E5%8C%BB%E7%96%97%E4%BF%9D%E9%99%A9%E5%8F%82%E4%BF%9D%E4%BA%BA%E5%91%98%E7%89%B9%E6%B2%BB%E7%89%B9%E8%8D%AF%E5%A4%87%E6%A1%88%E8%A1%A8.xml?version=1&modificationDate=1697183298766&api=v2">
-                    下载
-                  </a>
+                  <a onClick={() => download('1-2')}>下载</a>
                 </p>
                 <p>
                   模版对应的预置数据下载：
-                  <a href="https://winwiki.winning.com.cn/download/attachments/82769179/%E5%9F%BA%E6%9C%AC%E5%8C%BB%E7%96%97%E4%BF%9D%E9%99%A9%E5%8F%82%E4%BF%9D%E4%BA%BA%E5%91%98%E7%89%B9%E6%B2%BB%E7%89%B9%E8%8D%AF%E5%A4%87%E6%A1%88%E8%A1%A8%E4%B8%9A%E5%8A%A1%E6%95%B0%E6%8D%AE.json?version=1&modificationDate=1697183353705&api=v2">
-                    下载
-                  </a>
+                  <a onClick={() => downloadJSON('1-2')}>下载</a>
                 </p>
               </div>
             ) : selectedKeys[0] == '1-3' ? (
@@ -523,15 +659,11 @@ const index = () => {
                 </p>
                 <p>
                   本页面示例模版下载：
-                  <a href="https://winwiki.winning.com.cn/download/attachments/82769182/%E9%95%BF%E6%9C%9F%E5%8C%BB%E5%98%B1%E5%8D%95%28%E6%97%A7%29-0918.xml?version=1&modificationDate=1697433070321&api=v2">
-                    下载
-                  </a>
+                  <a onClick={() => download('1-3')}>下载</a>
                 </p>
                 <p>
                   模版对应的预置数据下载：
-                  <a href="https://winwiki.winning.com.cn/download/attachments/82769182/%E9%95%BF%E6%9C%9F%E5%8C%BB%E5%98%B1%E5%8D%95%E4%B8%9A%E5%8A%A1%E6%95%B0%E6%8D%AE%20%282%29.json?version=1&modificationDate=1697436593836&api=v2">
-                    下载
-                  </a>
+                  <a onClick={() => downloadJSON('1-3')}>下载</a>
                 </p>
               </div>
             ) : selectedKeys[0] == '1-4' ? (
@@ -585,15 +717,11 @@ const index = () => {
 
                 <p>
                   本页面示例模版下载：
-                  <a href="https://winwiki.winning.com.cn/download/attachments/82769184/%E9%80%9A%E7%94%A8%E6%89%A7%E8%A1%8C%E5%8D%95%20%281%29.xml?version=1&modificationDate=1697438338236&api=v2">
-                    下载
-                  </a>
+                  <a onClick={() => download('1-4')}>下载</a>
                 </p>
                 <p>
                   模版对应的预置数据下载：
-                  <a href="https://winwiki.winning.com.cn/download/attachments/82769184/%E9%80%9A%E7%94%A8%E6%89%A7%E8%A1%8C%E5%8D%95%E4%B8%9A%E5%8A%A1%E6%95%B0%E6%8D%AE.json?version=1&modificationDate=1697438385104&api=v2">
-                    下载
-                  </a>
+                  <a onClick={() => downloadJSON('1-4')}>下载</a>
                 </p>
               </div>
             ) : selectedKeys[0] == '2-1' ? (
@@ -633,15 +761,11 @@ const index = () => {
 
                 <p>
                   本页面示例模版下载：
-                  <a href="https://winwiki.winning.com.cn/download/attachments/82770624/%E7%97%85%E6%88%BF%E6%B1%87%E6%80%BB%E9%A2%86%E8%8D%AF%E5%8D%95-%E6%8C%89%E8%AF%B7%E9%A2%86%E7%A7%91%E5%AE%A4-%E8%8D%AF%E5%93%81ID%E4%BA%8C%E7%BA%A7%E5%88%86%E7%BB%84%20%281%29.xml?version=1&modificationDate=1697440951695&api=v2">
-                    下载
-                  </a>
+                  <a onClick={() => download('2-1')}>下载</a>
                 </p>
                 <p>
                   模版对应的预置数据下载：
-                  <a href="https://winwiki.winning.com.cn/download/attachments/82770624/%E7%97%85%E6%88%BF%E6%B1%87%E6%80%BB%E9%A2%86%E8%8D%AF%E5%8D%95.json?version=1&modificationDate=1697440956244&api=v2">
-                    下载
-                  </a>
+                  <a onClick={() => downloadJSON('2-1')}>下载</a>
                 </p>
               </div>
             ) : selectedKeys[0] == '2-2' ? (
@@ -701,15 +825,11 @@ const index = () => {
 
                 <p>
                   本页面示例模版下载：
-                  <a href="https://winwiki.winning.com.cn/download/attachments/82769173/%E7%97%85%E6%88%BF%E6%B1%87%E6%80%BB%E9%A2%86%E8%8D%AF%E5%8D%95-%E6%8C%89%E8%AF%B7%E9%A2%86%E7%A7%91%E5%AE%A4-%E8%8D%AF%E5%93%81ID%E4%BA%8C%E7%BA%A7%E5%88%86%E7%BB%84.xml?version=2&modificationDate=1697439392546&api=v2">
-                    下载
-                  </a>
+                  <a onClick={() => download('2-2')}>下载</a>
                 </p>
                 <p>
                   模版对应的预置数据下载：
-                  <a href="https://winwiki.winning.com.cn/download/attachments/82769173/%E7%97%85%E6%88%BF%E6%B1%87%E6%80%BB%E9%A2%86%E8%8D%AF%E5%8D%95.json?version=1&modificationDate=1697439414147&api=v2">
-                    下载
-                  </a>
+                  <a onClick={() => downloadJSON('2-2')}>下载</a>
                 </p>
               </div>
             ) : selectedKeys[0] == '3-2' ? (
@@ -768,15 +888,11 @@ const index = () => {
 
                 <p>
                   本页面示例模版下载：
-                  <a href="https://winwiki.winning.com.cn/download/attachments/82769163/%E8%B7%A8%E9%A1%B5%E3%80%81%E9%A6%96%E8%A1%8C%E6%98%BE%E7%A4%BA%28%E6%AD%A3%E5%B8%B8%29%20%281%29.xml?version=1&modificationDate=1697442556973&api=v2">
-                    下载
-                  </a>
+                  <a onClick={() => download('3-2')}>下载</a>
                 </p>
                 <p>
                   模版对应的预置数据下载：
-                  <a href="https://winwiki.winning.com.cn/download/attachments/82769163/%E7%94%A8%E8%8D%AF%E6%8C%87%E5%AF%BC%E5%8D%95.json?version=1&modificationDate=1697442602377&api=v2">
-                    下载
-                  </a>
+                  <a onClick={() => downloadJSON('3-2')}>下载</a>
                 </p>
               </div>
             ) : selectedKeys[0] == '3-3' ? (
@@ -829,15 +945,11 @@ const index = () => {
 
                 <p>
                   本页面示例模版下载：
-                  <a href="https://winwiki.winning.com.cn/download/attachments/82769175/%E7%BA%A6%E7%BF%B0%E9%9C%8D%E6%99%AE%E9%87%91%E6%96%AF%E8%B7%8C%E5%80%92%E9%A3%8E%E9%99%A9%E8%AF%84%E4%BC%B0%E9%87%8F%E8%A1%A8.xml?version=1&modificationDate=1697184437816&api=v2">
-                    下载
-                  </a>
+                  <a onClick={() => download('3-3')}>下载</a>
                 </p>
                 <p>
                   模版对应的预置数据下载：
-                  <a href="https://winwiki.winning.com.cn/download/attachments/82769175/%E7%BA%A6%E7%BF%B0%E9%9C%8D%E6%99%AE%E9%87%91%E6%96%AF%E8%B7%8C%E5%80%92%E9%A3%8E%E9%99%A9%E8%AF%84%E4%BC%B0%E9%87%8F%E8%A1%A8.json?version=1&modificationDate=1697184515505&api=v2">
-                    下载
-                  </a>
+                  <a onClick={() => downloadJSON('3-3')}>下载</a>
                 </p>
               </div>
             ) : selectedKeys[0] == '4-1' ? (
@@ -896,15 +1008,11 @@ const index = () => {
 
                 <p>
                   本页面示例模版下载：
-                  <a href="https://winwiki.winning.com.cn/download/attachments/82769159/%E9%95%BF%E6%9C%9F%E5%8C%BB%E5%98%B1%E5%8D%95%28%E6%97%A7%29-0918%20%282%29.xml?version=1&modificationDate=1697444832737&api=v2">
-                    下载
-                  </a>
+                  <a onClick={() => download('4-1')}>下载</a>
                 </p>
                 <p>
                   模版对应的预置数据下载：
-                  <a href="https://winwiki.winning.com.cn/download/attachments/82769159/%E8%87%AA%E5%8A%A8%E5%A4%A7%E5%B0%8F.json?version=1&modificationDate=1697444838360&api=v2">
-                    下载
-                  </a>
+                  <a onClick={() => downloadJSON('4-1')}>下载</a>
                 </p>
               </div>
             ) : selectedKeys[0] == '4-2' ? (
@@ -955,15 +1063,11 @@ const index = () => {
                 </p>
                 <p>
                   本页面示例模版下载：
-                  <a href="https://winwiki.winning.com.cn/download/attachments/82769161/%E9%95%BF%E6%9C%9F%E5%8C%BB%E5%98%B1%E5%8D%95%28%E6%97%A7%29-0918%20%281%29.xml?version=1&modificationDate=1697443897404&api=v2">
-                    下载
-                  </a>
+                  <a onClick={() => download('4-2')}>下载</a>
                 </p>
                 <p>
                   模版对应的预置数据下载：
-                  <a href="https://winwiki.winning.com.cn/download/attachments/82769161/%E6%8D%A2%E8%A1%8C%E6%96%87%E6%9C%AC.json?version=1&modificationDate=1697443912768&api=v2">
-                    下载
-                  </a>
+                  <a onClick={() => downloadJSON('4-2')}>下载</a>
                 </p>
               </div>
             ) : selectedKeys[0] == '5-2' ? (
@@ -1012,15 +1116,11 @@ const index = () => {
                 <p>3. 此模版使用了分组功能，分组功能请详细参考 使用简单分组</p>
                 <p>
                   本页面示例模版下载：
-                  <a href="https://winwiki.winning.com.cn/download/attachments/82769148/%E7%94%A8%E8%8D%AF%E6%8C%87%E5%AF%BC%E5%8D%95.xml?version=1&modificationDate=1697177635561&api=v2">
-                    下载
-                  </a>
+                  <a onClick={() => download('5-2')}>下载</a>
                 </p>
                 <p>
                   模版对应的预置数据下载：
-                  <a href="https://winwiki.winning.com.cn/download/attachments/82769153/%E7%94%A8%E8%8D%AF%E6%8C%87%E5%AF%BC%E5%8D%95%E6%AF%8F%E9%A1%B5%E6%89%93%E5%8D%B0.json?version=2&modificationDate=1697181095543&api=v2">
-                    下载
-                  </a>
+                  <a onClick={() => downloadJSON('5-2')}>下载</a>
                 </p>
               </div>
             ) : selectedKeys[0] == '5-3' ? (
@@ -1068,15 +1168,11 @@ const index = () => {
 
                 <p>
                   本页面示例模版下载：
-                  <a href="https://winwiki.winning.com.cn/download/attachments/82769155/%E8%BE%93%E6%B6%B2%E5%8D%A1_2%28%E6%96%B0%29.xml?version=1&modificationDate=1697437555522&api=v2">
-                    下载
-                  </a>
+                  <a onClick={() => download('5-3')}>下载</a>
                 </p>
                 <p>
                   模版对应的预置数据下载：
-                  <a href="https://winwiki.winning.com.cn/download/attachments/82769155/%E8%BE%93%E6%B6%B2%E5%8D%A1%E4%B8%80%E5%BC%8F%E5%A4%9A%E4%BB%BD.json?version=1&modificationDate=1697437617836&api=v2">
-                    下载
-                  </a>
+                  <a onClick={() => downloadJSON('5-3')}>下载</a>
                 </p>
               </div>
             ) : selectedKeys[0] == '5-4' ? (
@@ -1122,18 +1218,13 @@ const index = () => {
                   3. 此模版使用了脚本设置边框功能，脚本设置边框请参考:
                   <a onClick={() => historyToCase('2-1')}>动态设置边框</a>
                 </p>
-
                 <p>
                   本页面示例模版下载：
-                  <a href="https://winwiki.winning.com.cn/download/attachments/82770624/%E7%97%85%E6%88%BF%E6%B1%87%E6%80%BB%E9%A2%86%E8%8D%AF%E5%8D%95-%E6%8C%89%E8%AF%B7%E9%A2%86%E7%A7%91%E5%AE%A4-%E8%8D%AF%E5%93%81ID%E4%BA%8C%E7%BA%A7%E5%88%86%E7%BB%84%20%281%29.xml?version=1&modificationDate=1697440951695&api=v2">
-                    下载
-                  </a>
+                  <a onClick={() => download('5-4')}>下载</a>
                 </p>
                 <p>
                   模版对应的预置数据下载：
-                  <a href="https://winwiki.winning.com.cn/download/attachments/82770624/%E7%97%85%E6%88%BF%E6%B1%87%E6%80%BB%E9%A2%86%E8%8D%AF%E5%8D%95.json?version=1&modificationDate=1697440956244&api=v2">
-                    下载
-                  </a>
+                  <a onClick={() => downloadJSON('5-4')}>下载</a>
                 </p>
               </div>
             ) : selectedKeys[0] == '6-1' ? (
@@ -1217,15 +1308,11 @@ const index = () => {
                 ></Image>
                 <p>
                   本页面示例模版下载：
-                  <a href="https://winwiki.winning.com.cn/download/attachments/82769148/%E7%94%A8%E8%8D%AF%E6%8C%87%E5%AF%BC%E5%8D%95.xml?version=1&modificationDate=1697177635561&api=v2">
-                    下载
-                  </a>
+                  <a onClick={() => download('6-1')}>下载</a>
                 </p>
                 <p>
                   模版对应的预置数据下载：
-                  <a href="https://winwiki.winning.com.cn/download/attachments/82769148/%E7%AE%80%E5%8D%95%E5%88%86%E7%BB%84%E4%B8%9A%E5%8A%A1%E6%95%B0%E6%8D%AE.json?version=1&modificationDate=1697177682553&api=v2">
-                    下载
-                  </a>
+                  <a onClick={() => downloadJSON('6-1')}>下载</a>
                 </p>
               </div>
             ) : selectedKeys[0] == '6-2' ? (
@@ -1323,15 +1410,11 @@ const index = () => {
                 </p>
                 <p>
                   本页面示例模版下载：
-                  <a href="https://winwiki.winning.com.cn/download/attachments/82769150/%E4%BD%8F%E9%99%A2%E8%8D%AF%E6%88%BF%E8%BE%93%E6%B6%B2%E7%BB%84%E5%90%88%E7%AD%BE.xml?version=1&modificationDate=1697176362696&api=v2">
-                    下载
-                  </a>
+                  <a onClick={() => download('6-2')}>下载</a>
                 </p>
                 <p>
                   模版对应的预置数据下载：
-                  <a href="https://winwiki.winning.com.cn/download/attachments/82769150/%E4%BD%8F%E9%99%A2%E8%8D%AF%E6%88%BF%E8%BE%93%E6%B6%B2%E7%BB%84%E5%90%88%E7%AD%BE%E4%B8%9A%E5%8A%A1%E6%95%B0%E6%8D%AE.json?version=1&modificationDate=1697176419543&api=v2">
-                    下载
-                  </a>
+                  <a onClick={() => downloadJSON('6-2')}>下载</a>
                 </p>
               </div>
             ) : selectedKeys[0] == '7' ? (
@@ -1449,15 +1532,11 @@ const index = () => {
                 </div>
                 <p>
                   本页面示例模版下载：
-                  <a href="https://winwiki.winning.com.cn/download/attachments/82769062/%E6%82%A3%E8%80%85%E4%B8%80%E8%A7%88%E8%A1%A8.xml?version=1&modificationDate=1697087853453&api=v2">
-                    下载
-                  </a>
+                  <a onClick={() => download('7')}>下载</a>
                 </p>
                 <p>
                   模版对应的预置数据下载：
-                  <a href="https://winwiki.winning.com.cn/download/attachments/82769062/%E6%82%A3%E8%80%85%E4%B8%80%E8%A7%88%E8%A1%A8%E4%B8%9A%E5%8A%A1%E6%95%B0%E6%8D%AE.json?version=1&modificationDate=1697088233197&api=v2">
-                    下载
-                  </a>
+                  <a onClick={() => downloadJSON('7')}>下载</a>
                 </p>
               </div>
             ) : selectedKeys[0] == '8' ? (
@@ -1509,15 +1588,11 @@ const index = () => {
                 </p>
                 <p>
                   本页面示例模版下载：
-                  <a href="https://winwiki.winning.com.cn/download/attachments/82769064/%E4%BD%8F%E9%99%A2%E8%8D%AF%E6%88%BF%E8%A5%BF%E6%88%90%E8%8D%AF%E6%B1%87%E6%80%BB%E7%BB%84%E5%90%88%E7%AD%BE%E5%A4%9A%E9%A1%B5%E6%A8%A1%E7%89%88%E8%B7%9F%E9%9A%8F.xml?version=1&modificationDate=1697080877565&api=v2">
-                    下载
-                  </a>
+                  <a onClick={() => download('8')}>下载</a>
                 </p>
                 <p>
                   模版对应的预置数据下载：
-                  <a href="https://winwiki.winning.com.cn/download/attachments/82769064/%E4%BD%8F%E9%99%A2%E8%8D%AF%E6%88%BF%E8%A5%BF%E6%88%90%E8%8D%AF%E6%B1%87%E6%80%BB%E7%BB%84%E5%90%88%E7%AD%BE%E5%A4%9A%E9%A1%B5%E6%A8%A1%E7%89%88%E8%B7%9F%E9%9A%8F.json?version=1&modificationDate=1697080960039&api=v2">
-                    下载
-                  </a>
+                  <a onClick={() => downloadJSON('8')}>下载</a>
                 </p>
               </div>
             ) : selectedKeys[0] == '9-1' ? (
@@ -1566,15 +1641,11 @@ const index = () => {
                 <p>3. 打印时发送到混合框架即可按续打效果进行打印。</p>
                 <p>
                   本页面示例模版下载：
-                  <a href="https://winwiki.winning.com.cn/download/attachments/82769068/%E4%B8%B4%E6%97%B6%E5%8C%BB%E5%98%B1.xml?version=1&modificationDate=1697097669820&api=v2">
-                    下载
-                  </a>
+                  <a onClick={() => download('9-1')}>下载</a>
                 </p>
                 <p>
                   模版对应的预置数据下载：
-                  <a href="https://winwiki.winning.com.cn/download/attachments/82769068/%E4%B8%B4%E6%97%B6%E5%8C%BB%E5%98%B1%E7%BB%AD%E6%89%93%E4%B8%9A%E5%8A%A1%E6%95%B0%E6%8D%AE.json?version=1&modificationDate=1697097677398&api=v2">
-                    下载
-                  </a>
+                  <a onClick={() => downloadJSON('9-1')}>下载</a>
                 </p>
               </div>
             ) : selectedKeys[0] == '9-2' ? (
@@ -1655,15 +1726,11 @@ const index = () => {
                 <p>3. 打印时发送到混合框架即可按补打效果进行打印。</p>
                 <p>
                   本页面示例模版下载：
-                  <a href="https://winwiki.winning.com.cn/download/attachments/82769068/%E4%B8%B4%E6%97%B6%E5%8C%BB%E5%98%B1.xml?version=1&modificationDate=1697097669820&api=v2">
-                    下载
-                  </a>
+                  <a onClick={() => download('9-2')}>下载</a>
                 </p>
                 <p>
                   模版对应的预置数据下载：
-                  <a href="https://winwiki.winning.com.cn/download/attachments/82769068/%E4%B8%B4%E6%97%B6%E5%8C%BB%E5%98%B1%E7%BB%AD%E6%89%93%E4%B8%9A%E5%8A%A1%E6%95%B0%E6%8D%AE.json?version=1&modificationDate=1697097677398&api=v2">
-                    下载
-                  </a>
+                  <a onClick={() => downloadJSON('9-2')}>下载</a>
                 </p>
               </div>
             ) : selectedKeys[0] == '9-3' ? (
@@ -1715,15 +1782,11 @@ const index = () => {
                 <p>3. 打印时发送到混合框架即可按套打效果进行打印。</p>
                 <p>
                   本页面示例模版下载：
-                  <a href="https://winwiki.winning.com.cn/download/attachments/82769072/%E9%95%BF%E6%9C%9F%E5%8C%BB%E5%98%B1%E5%8D%95-%E6%96%B0.xml?version=1&modificationDate=1697095486042&api=v2">
-                    下载
-                  </a>
+                  <a onClick={() => download('9-3')}>下载</a>
                 </p>
                 <p>
                   模版对应的预置数据下载：
-                  <a href="https://winwiki.winning.com.cn/download/attachments/82769072/%E9%95%BF%E6%9C%9F%E5%8C%BB%E5%98%B1%E5%8D%95%E4%B8%9A%E5%8A%A1%E6%95%B0%E6%8D%AE.json?version=2&modificationDate=1697095500277&api=v2">
-                    下载
-                  </a>
+                  <a onClick={() => downloadJSON('9-3')}>下载</a>
                 </p>
               </div>
             ) : selectedKeys[0] == '9-4' ? (
@@ -1818,15 +1881,11 @@ const index = () => {
                 />
                 <p>
                   本页面示例模版下载：
-                  <a href="https://winwiki.winning.com.cn/download/attachments/82769074/%E4%B8%B4%E6%97%B6%E5%8C%BB%E5%98%B1.xml?version=1&modificationDate=1697102512616&api=v2">
-                    下载
-                  </a>
+                  <a onClick={() => download('9-4')}>下载</a>
                 </p>
                 <p>
                   模版对应的预置数据下载：
-                  <a href="https://winwiki.winning.com.cn/download/attachments/82769074/%E4%B8%B4%E6%97%B6%E5%8C%BB%E5%98%B1%E5%9B%9E%E8%B0%83%E8%BF%94%E5%9B%9E%E5%85%83%E6%95%B0%E6%8D%AE%E4%B8%9A%E5%8A%A1%E6%95%B0%E6%8D%AE.json?version=2&modificationDate=1697102543156&api=v2">
-                    下载
-                  </a>
+                  <a onClick={() => downloadJSON('9-4')}>下载</a>
                 </p>
               </div>
             ) : (
