@@ -12,5 +12,5 @@ export default defineConfig({
   npmClient: 'yarn',
   history: { type: 'hash' },
   base: '/web-wxp-print-portal',
-  publicPath: '/web-wxp-print-portal',
+  publicPath: '/web-wxp-print-portal/',
 });
