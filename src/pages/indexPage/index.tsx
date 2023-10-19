@@ -12,7 +12,11 @@ export default function HomePage(props: any) {
   };
 
   const startUse = () => {
-    history.push('/docPage');
+    const a = document.createElement('a');
+    a.href =
+      'http://wxp.cdp.iwincloud.com:8091/printDesigner/front?soid=10&mode=local';
+    a.target = '_blank';
+    a.click();
   };
 
   const caseClick = (key: any) => {

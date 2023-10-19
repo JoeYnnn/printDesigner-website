@@ -384,6 +384,81 @@ const index = () => {
     a.remove();
   };
 
+  const useNow = (type: any) => {
+    const a = document.createElement('a');
+
+    if (type == '1-0') {
+      a.href =
+        'http://wxp.cdp.iwincloud.com:8091/printDesigner/front?soid=10&mode=local&code=100001';
+    } else if (type == '1-1') {
+      a.href =
+        'http://wxp.cdp.iwincloud.com:8091/printDesigner/front?soid=10&mode=local&code=100002';
+    } else if (type == '1-2') {
+      a.href =
+        'http://wxp.cdp.iwincloud.com:8091/printDesigner/front?soid=10&mode=local&code=100003';
+    } else if (type == '1-3') {
+      a.href =
+        'http://wxp.cdp.iwincloud.com:8091/printDesigner/front?soid=10&mode=local&code=100004';
+    } else if (type == '1-4') {
+      a.href =
+        'http://wxp.cdp.iwincloud.com:8091/printDesigner/front?soid=10&mode=local&code=100005';
+    } else if (type == '2-1') {
+      a.href =
+        'http://wxp.cdp.iwincloud.com:8091/printDesigner/front?soid=10&mode=local&code=100006';
+    } else if (type == '2-2') {
+      a.href =
+        'http://wxp.cdp.iwincloud.com:8091/printDesigner/front?soid=10&mode=local&code=100007';
+    } else if (type == '3-2') {
+      a.href =
+        'http://wxp.cdp.iwincloud.com:8091/printDesigner/front?soid=10&mode=local&code=100008';
+    } else if (type == '3-3') {
+      a.href =
+        'http://wxp.cdp.iwincloud.com:8091/printDesigner/front?soid=10&mode=local&code=100009';
+    } else if (type == '4-1') {
+      a.href =
+        'http://wxp.cdp.iwincloud.com:8091/printDesigner/front?soid=10&mode=local&code=100010';
+    } else if (type == '4-2') {
+      a.href =
+        'http://wxp.cdp.iwincloud.com:8091/printDesigner/front?soid=10&mode=local&code=100011';
+    } else if (type == '5-2') {
+      a.href =
+        'http://wxp.cdp.iwincloud.com:8091/printDesigner/front?soid=10&mode=local&code=100012';
+    } else if (type == '5-3') {
+      a.href =
+        'http://wxp.cdp.iwincloud.com:8091/printDesigner/front?soid=10&mode=local&code=100013';
+    } else if (type == '5-4') {
+      a.href =
+        'http://wxp.cdp.iwincloud.com:8091/printDesigner/front?soid=10&mode=local&code=100014';
+    } else if (type == '6-1') {
+      a.href =
+        'http://wxp.cdp.iwincloud.com:8091/printDesigner/front?soid=10&mode=local&code=100015';
+    } else if (type == '6-2') {
+      a.href =
+        'http://wxp.cdp.iwincloud.com:8091/printDesigner/front?soid=10&mode=local&code=100016';
+    } else if (type == '7') {
+      a.href =
+        'http://wxp.cdp.iwincloud.com:8091/printDesigner/front?soid=10&mode=local&code=100017';
+    } else if (type == '8') {
+      a.href =
+        'http://wxp.cdp.iwincloud.com:8091/printDesigner/front?soid=10&mode=local&code=100018';
+    } else if (type == '9-1') {
+      a.href =
+        'http://wxp.cdp.iwincloud.com:8091/printDesigner/front?soid=10&mode=local&code=100019';
+    } else if (type == '9-2') {
+      a.href =
+        'http://wxp.cdp.iwincloud.com:8091/printDesigner/front?soid=10&mode=local&code=100020';
+    } else if (type == '9-3') {
+      a.href =
+        'http://wxp.cdp.iwincloud.com:8091/printDesigner/front?soid=10&mode=local&code=100021';
+    } else if (type == '9-4') {
+      a.href =
+        'http://wxp.cdp.iwincloud.com:8091/printDesigner/front?soid=10&mode=local&code=100022';
+    }
+
+    a.target = '_blank';
+    a.click();
+  };
+
   return (
     <div className={styles.indexContent}>
       <div className={styles.componentContent1}>
@@ -456,6 +531,10 @@ const index = () => {
                     src={require('../image/图片案例4.png')}
                   ></Image>
                   <p>
+                    设计器直接使用：
+                    <a onClick={() => useNow('1-0')}>现在使用</a>
+                  </p>
+                  <p>
                     本页面示例模版下载：
                     <a onClick={() => download('1-0')}>下载</a>
                   </p>
@@ -514,7 +593,10 @@ const index = () => {
                     2. 此模版使用了行板功能，行板功能请详细参考
                     简单表格(横表&行板)
                   </p>
-
+                  <p>
+                    设计器直接使用：
+                    <a onClick={() => useNow('1-1')}>现在使用</a>
+                  </p>
                   <p>
                     本页面示例模版下载：
                     <a onClick={() => download('1-1')}>下载</a>
@@ -579,6 +661,10 @@ const index = () => {
                   height={500}
                   src={require('../image/复选框案例5.png')}
                 ></Image>
+                <p>
+                  设计器直接使用：
+                  <a onClick={() => useNow('1-2')}>现在使用</a>
+                </p>
                 <p>
                   本页面示例模版下载：
                   <a onClick={() => download('1-2')}>下载</a>
@@ -658,6 +744,10 @@ const index = () => {
                   <a onClick={() => historyToCase('9-2')}>补打实现</a>
                 </p>
                 <p>
+                  设计器直接使用：
+                  <a onClick={() => useNow('1-3')}>现在使用</a>
+                </p>
+                <p>
                   本页面示例模版下载：
                   <a onClick={() => download('1-3')}>下载</a>
                 </p>
@@ -714,7 +804,10 @@ const index = () => {
                   3. 此案例使用了每页打印功能，列板具体使用请参见案例:{' '}
                   <a onClick={() => historyToCase('5-2')}>每页打印</a>
                 </p>
-
+                <p>
+                  设计器直接使用：
+                  <a onClick={() => useNow('1-4')}>现在使用</a>
+                </p>
                 <p>
                   本页面示例模版下载：
                   <a onClick={() => download('1-4')}>下载</a>
@@ -758,7 +851,10 @@ const index = () => {
                   2. 此模版使用了补齐空行功能，补齐空行请参考:{' '}
                   <a onClick={() => historyToCase('5-4')}>使用补齐空行</a>
                 </p>
-
+                <p>
+                  设计器直接使用：
+                  <a onClick={() => useNow('2-1')}>现在使用</a>
+                </p>
                 <p>
                   本页面示例模版下载：
                   <a onClick={() => download('2-1')}>下载</a>
@@ -822,7 +918,10 @@ const index = () => {
                   3. 此案例使用了补齐空行功能，补齐空行功能具体使用请参见案例:{' '}
                   <a onClick={() => historyToCase('5-4')}>补齐空行</a>
                 </p>
-
+                <p>
+                  设计器直接使用：
+                  <a onClick={() => useNow('2-2')}>现在使用</a>
+                </p>
                 <p>
                   本页面示例模版下载：
                   <a onClick={() => download('2-2')}>下载</a>
@@ -885,7 +984,10 @@ const index = () => {
                   <a onClick={() => historyToCase('5-4')}>使用补齐空行</a>，
                   <a onClick={() => historyToCase('1-4')}>使用面板</a>，
                 </p>
-
+                <p>
+                  设计器直接使用：
+                  <a onClick={() => useNow('3-2')}>现在使用</a>
+                </p>
                 <p>
                   本页面示例模版下载：
                   <a onClick={() => download('3-2')}>下载</a>
@@ -942,7 +1044,10 @@ const index = () => {
                   3. 此案例使用了每页打印功能，列板具体使用请参见案例:
                   <a onClick={() => historyToCase('5-2')}>每页打印</a>
                 </p>
-
+                <p>
+                  设计器直接使用：
+                  <a onClick={() => useNow('3-3')}>现在使用</a>
+                </p>
                 <p>
                   本页面示例模版下载：
                   <a onClick={() => download('3-3')}>下载</a>
@@ -1005,7 +1110,10 @@ const index = () => {
                   简单表格(横表&行板)
                   ，使用了换行文本功能，换行文本详细参考:换行文本，页缝换行
                 </p>
-
+                <p>
+                  设计器直接使用：
+                  <a onClick={() => useNow('4-1')}>现在使用</a>
+                </p>
                 <p>
                   本页面示例模版下载：
                   <a onClick={() => download('4-1')}>下载</a>
@@ -1062,6 +1170,10 @@ const index = () => {
                   简单表格(横表&行板)
                 </p>
                 <p>
+                  设计器直接使用：
+                  <a onClick={() => useNow('4-2')}>现在使用</a>
+                </p>
+                <p>
                   本页面示例模版下载：
                   <a onClick={() => download('4-2')}>下载</a>
                 </p>
@@ -1115,6 +1227,10 @@ const index = () => {
                 ></Image>
                 <p>3. 此模版使用了分组功能，分组功能请详细参考 使用简单分组</p>
                 <p>
+                  设计器直接使用：
+                  <a onClick={() => useNow('5-2')}>现在使用</a>
+                </p>
+                <p>
                   本页面示例模版下载：
                   <a onClick={() => download('5-2')}>下载</a>
                 </p>
@@ -1165,7 +1281,10 @@ const index = () => {
                   3. 此模版使用了每页打印功能，每页打印请参考:
                   <a onClick={() => historyToCase('5-2')}>每页打印</a>
                 </p>
-
+                <p>
+                  设计器直接使用：
+                  <a onClick={() => useNow('5-3')}>现在使用</a>
+                </p>
                 <p>
                   本页面示例模版下载：
                   <a onClick={() => download('5-3')}>下载</a>
@@ -1217,6 +1336,10 @@ const index = () => {
                 <p>
                   3. 此模版使用了脚本设置边框功能，脚本设置边框请参考:
                   <a onClick={() => historyToCase('2-1')}>动态设置边框</a>
+                </p>
+                <p>
+                  设计器直接使用：
+                  <a onClick={() => useNow('5-4')}>现在使用</a>
                 </p>
                 <p>
                   本页面示例模版下载：
@@ -1306,6 +1429,10 @@ const index = () => {
                   height={400}
                   src={require('../image/简单分组案例8.png')}
                 ></Image>
+                <p>
+                  设计器直接使用：
+                  <a onClick={() => useNow('6-1')}>现在使用</a>
+                </p>
                 <p>
                   本页面示例模版下载：
                   <a onClick={() => download('6-1')}>下载</a>
@@ -1407,6 +1534,10 @@ const index = () => {
                   3.
                   此模版为多页模版与多级分组打印情况的结合，多页模版制作请参考
                   <a onClick={() => historyToCase('8')}>使用多页模版</a>
+                </p>
+                <p>
+                  设计器直接使用：
+                  <a onClick={() => useNow('6-2')}>现在使用</a>
                 </p>
                 <p>
                   本页面示例模版下载：
@@ -1531,6 +1662,10 @@ const index = () => {
                   ></Image>
                 </div>
                 <p>
+                  设计器直接使用：
+                  <a onClick={() => useNow('7')}>现在使用</a>
+                </p>
+                <p>
                   本页面示例模版下载：
                   <a onClick={() => download('7')}>下载</a>
                 </p>
@@ -1587,6 +1722,10 @@ const index = () => {
                   现阶段设计态未开放此种跟随打印情形的设计，制作此模版请以案例中模版为原型，先下载模版后，再上传到对应环境，修改模版以实现此案例效果。
                 </p>
                 <p>
+                  设计器直接使用：
+                  <a onClick={() => useNow('8')}>现在使用</a>
+                </p>
+                <p>
                   本页面示例模版下载：
                   <a onClick={() => download('8')}>下载</a>
                 </p>
@@ -1639,6 +1778,10 @@ const index = () => {
                   补行所在页前续页面不显示，补行所在页及后续页按续打显示逻辑正常返回
                 </p>
                 <p>3. 打印时发送到混合框架即可按续打效果进行打印。</p>
+                <p>
+                  设计器直接使用：
+                  <a onClick={() => useNow('9-1')}>现在使用</a>
+                </p>
                 <p>
                   本页面示例模版下载：
                   <a onClick={() => download('9-1')}>下载</a>
@@ -1725,6 +1868,10 @@ const index = () => {
                 <p></p>
                 <p>3. 打印时发送到混合框架即可按补打效果进行打印。</p>
                 <p>
+                  设计器直接使用：
+                  <a onClick={() => useNow('9-2')}>现在使用</a>
+                </p>
+                <p>
                   本页面示例模版下载：
                   <a onClick={() => download('9-2')}>下载</a>
                 </p>
@@ -1780,6 +1927,10 @@ const index = () => {
                   src={require('../image/套打案例4.png')}
                 ></Image>
                 <p>3. 打印时发送到混合框架即可按套打效果进行打印。</p>
+                <p>
+                  设计器直接使用：
+                  <a onClick={() => useNow('9-3')}>现在使用</a>
+                </p>
                 <p>
                   本页面示例模版下载：
                   <a onClick={() => download('9-3')}>下载</a>
@@ -1879,6 +2030,10 @@ const index = () => {
                     
                    }`}
                 />
+                <p>
+                  设计器直接使用：
+                  <a onClick={() => useNow('9-4')}>现在使用</a>
+                </p>
                 <p>
                   本页面示例模版下载：
                   <a onClick={() => download('9-4')}>下载</a>
