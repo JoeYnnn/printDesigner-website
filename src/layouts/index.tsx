@@ -58,7 +58,22 @@ const App = () => {
       default:
         break;
     }
+
+    localStorage.clear();
+    sessionStorage.clear();
+    clearAllCookie();
   }, [location]);
+
+  const clearAllCookie = () => {
+    document.cookie
+      .split(';')
+      .forEach(
+        (cookie) =>
+          (document.cookie = cookie
+            .replace(/^ +/, '')
+            .replace(/=.*/, `=;expires=${new Date(0).toUTCString()};path=/`)),
+      );
+  };
 
   return (
     <ConfigProvider locale={zhCN} theme={{ token: { borderRadius: 2 } }}>
