@@ -14,11 +14,26 @@ export default function HomePage(props: any) {
   };
 
   const startUse = () => {
+    localStorage.clear();
+    sessionStorage.clear();
+    clearAllCookie();
+
     const a = document.createElement('a');
     a.href =
       'http://wxp.cdp.iwincloud.com:8091/printDesigner/front?soid=10&mode=local';
     a.target = '_blank';
     a.click();
+  };
+
+  const clearAllCookie = () => {
+    document.cookie
+      .split(';')
+      .forEach(
+        (cookie) =>
+          (document.cookie = cookie
+            .replace(/^ +/, '')
+            .replace(/=.*/, `=;expires=${new Date(0).toUTCString()};path=/`)),
+      );
   };
 
   const caseClick = (key: any) => {
@@ -178,7 +193,7 @@ export default function HomePage(props: any) {
                   <Image
                     width={120}
                     height={120}
-                    src={require('../image/首页核心功能2.png')}
+                    src={require('../image/首页核心功能1.png')}
                     preview={false}
                   />
                 </div>
