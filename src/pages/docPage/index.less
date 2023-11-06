@@ -6,11 +6,7 @@
     height: 100%;
     display: flex;
     justify-content: center;
-    background: linear-gradient(
-      180deg,
-      #f6f6f6 0%,
-      rgba(255, 255, 255, 0.01%) 100%
-    );
+    background: #f7f8fa;
 
     .content {
       width: 100%;
@@ -20,23 +16,36 @@
 
       .leftNav {
         width: 215px;
-        height: calc(100vh - 120px);
-        overflow: auto;
+        height: calc(100vh - 110px);
         background: #fff;
         position: absolute;
         padding-top: 18px;
-        top: 40px;
+        top: 20px;
         left: 15%;
         z-index: 1;
       }
 
       .mainContent {
         width: 100%;
-        height: calc(100vh - 64px);
+        height: calc(100vh - 110px);
         overflow: auto;
         padding-left: 12px;
+        margin-top: 20px;
         left: calc(15% + 240px);
         position: relative;
+
+        & > div:first-child {
+          width: 1000px;
+          height: calc(100vh - 110px);
+          background-color: #fff;
+          padding-left: 32px;
+          padding-top: 24px;
+          overflow: auto;
+
+          h1 {
+            margin-top: 0;
+          }
+        }
 
         .imageBox {
           display: flex;

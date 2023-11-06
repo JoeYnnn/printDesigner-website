@@ -1,36 +1,41 @@
 import { Link, Outlet, useLocation, history } from 'umi';
 import styles from './index.less';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { Button, Layout, Menu, ConfigProvider } from 'antd';
 const { Header, Content, Footer } = Layout;
 import zhCN from 'antd/locale/zh_CN';
+import { useScroll } from 'ahooks';
 
 const App = () => {
   const location = useLocation();
   const [selectKeys, setSelectKeys] = useState('1');
+  const ref = useRef<any>(null);
+  const headerRef = useRef<any>(null);
+  const scroll = useScroll(document);
 
   const onClick = (e: any) => {
-    if (e.key == 1) {
+    if (e == 1) {
       //首页
       history.push('/');
     }
-    if (e.key == 2) {
+    if (e == 2) {
       //文档
       history.push('/docPage');
     }
-    if (e.key == 3) {
+    if (e == 3) {
       //案例
       history.push('/casePage');
     }
-    if (e.key == 4) {
+    if (e == 4) {
       //资源
       history.push('/sourcePage');
     }
-    if (e.key == 5) {
+    if (e == 5) {
       //关于
       history.push('/aboutPage');
     }
+    setSelectKeys(e.toString());
   };
 
   const download = () => {
@@ -75,56 +80,62 @@ const App = () => {
       );
   };
 
+  useEffect(() => {
+    if (scroll?.top == 0) {
+      headerRef.current.className = `${styles.header}`;
+    } else {
+      headerRef.current.className = `${styles.header} ${styles.shadow}`;
+    }
+  }, [scroll?.top]);
+
   return (
     <ConfigProvider locale={zhCN} theme={{ token: { borderRadius: 2 } }}>
       <Layout className={styles.layout}>
-        <Header
-          style={{
-            position: 'sticky',
-            top: 0,
-            zIndex: 1,
-            width: '100%',
-            display: 'flex',
-            alignItems: 'center',
-          }}
-        >
-          <div className={styles.navs}>
+        <Header className={styles.header} ref={headerRef}>
+          <div className={styles.navs} ref={ref}>
             <div className={styles.navsLeft}>
-              <div className={styles.logo}>Logo</div>
-              <Menu
-                theme="dark"
-                mode="horizontal"
-                selectedKeys={[selectKeys]}
-                onClick={onClick}
-                items={[
-                  {
-                    key: 1,
-                    label: `首页`,
-                  },
-                  {
-                    key: 2,
-                    label: `文档`,
-                  },
-                  {
-                    key: 3,
-                    label: `案例`,
-                  },
-                  {
-                    key: 4,
-                    label: `资源`,
-                  },
-                  {
-                    key: 5,
-                    label: `关于`,
-                  },
-                ]}
-              />
+              <div className={styles.logo}>
+                <div className={styles.logoContent}></div>
+                <div className={styles.logoText}>WXP打印设计器</div>
+              </div>
+              <div className={styles.menuList}>
+                <div
+                  onClick={() => onClick(1)}
+                  className={`${selectKeys == '1' ? styles.hover : {}}`}
+                >
+                  首页
+                </div>
+                <div
+                  onClick={() => onClick(2)}
+                  className={`${selectKeys == '2' ? styles.hover : {}}`}
+                >
+                  文档
+                </div>
+                <div
+                  onClick={() => onClick(3)}
+                  className={`${selectKeys == '3' ? styles.hover : {}}`}
+                >
+                  应用场景
+                </div>
+                <div
+                  onClick={() => onClick(4)}
+                  className={`${selectKeys == '4' ? styles.hover : {}}`}
+                >
+                  资源
+                </div>
+                <div
+                  onClick={() => onClick(5)}
+                  className={`${selectKeys == '5' ? styles.hover : {}}`}
+                >
+                  关于
+                </div>
+              </div>
             </div>
 
             <div>
               <Button
                 type="primary"
-                style={{ borderRadius: 2 }}
+                style={{ borderRadius: 4, width: 96, background: '#2D5AFA' }}
                 onClick={download}
               >
                 下载

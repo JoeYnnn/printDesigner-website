@@ -9,15 +9,10 @@
   .componentContent3,
   .componentContent4 {
     width: 100%;
-    height: 580px;
+    height: 467px;
     display: flex;
     justify-content: center;
     align-items: center;
-    background: linear-gradient(
-      180deg,
-      #f6f6f6 0%,
-      rgba(255, 255, 255, 0.01%) 100%
-    );
 
     .content {
       width: 1200px;
@@ -29,6 +24,7 @@
         width: 600px;
       }
       .carousel {
+        display: none;
         width: 500px;
 
         .contentStyle {
@@ -67,9 +63,120 @@
           width: 220px;
           height: 300px;
 
+          .title {
+            margin: 14px 0 9px 0;
+            font-size: 18px;
+            font-weight: bold;
+          }
+
           .description {
-            margin-top: 8px;
             text-align: center;
+            color: #7d7d7d;
+            font-size: 14px;
+          }
+        }
+      }
+
+      .partList1 {
+        .menu {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+
+          div {
+            width: 400px;
+            height: 50px;
+            line-height: 50px;
+            border: 1px solid #e6e7e7;
+            border-top: 2px solid #e6e7e7;
+            cursor: pointer;
+            font-size: 16px;
+          }
+
+          .hover {
+            color: #2d5afa;
+            border-top: 2px solid #2d5afa;
+          }
+        }
+        .menuContent {
+          width: 1200px;
+          height: 600px;
+          margin-bottom: 100px;
+          display: flex;
+
+          .rightDesc {
+            padding: 32px 0 0 81px;
+            width: 500px;
+            height: 500px;
+            position: relative;
+
+            .descBox {
+              text-align: left;
+              margin-bottom: 48px;
+
+              div:first-child {
+                font-weight: bold;
+                font-size: 18px;
+                margin-bottom: 12px;
+              }
+
+              div:last-child {
+                font-size: 14px;
+                font-weight: normal;
+                color: #7d7d7d;
+              }
+
+              .descCont {
+                display: flex;
+                align-items: center;
+
+                .icontext {
+                  font-size: 14px;
+                  font-weight: bold;
+                  margin-left: 8px;
+                  color: #000;
+                }
+              }
+            }
+            .descBox1 {
+              text-align: left;
+
+              .boxTitle {
+                font-weight: bold;
+                font-size: 18px;
+                margin-bottom: 12px;
+              }
+
+              .descCont {
+                display: flex;
+                align-items: center;
+
+                .icontext {
+                  font-size: 14px;
+                  font-weight: bold;
+                  margin-left: 8px;
+                  color: #000;
+                }
+              }
+              .descDs {
+                font-size: 14px;
+                font-weight: normal;
+                color: #7d7d7d;
+              }
+            }
+            .buttonBox {
+              text-align: left;
+              margin-top: 55px;
+              position: absolute;
+              bottom: 24px;
+              left: 81px;
+
+              .button {
+                background: #2d5afa;
+                border-radius: 4px;
+                color: #fff;
+              }
+            }
           }
         }
       }
@@ -96,5 +203,14 @@
         }
       }
     }
+  }
+
+  .componentContent1 {
+    background: url('../image/banner@2x.png') no-repeat;
+    background-color: #e5f2fd;
+    background-size: 1920px 467px;
+    background-position: center;
+  }
+  .componentContent3 {
   }
 }
