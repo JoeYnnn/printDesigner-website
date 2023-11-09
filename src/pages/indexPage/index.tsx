@@ -233,7 +233,7 @@ export default function HomePage(props: any) {
                 textAlign: 'center',
               }}
             >
-              应用场景
+              案例
             </div>
             <div className={styles.partList1}>
               <div className={styles.menu}>

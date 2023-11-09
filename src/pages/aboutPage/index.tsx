@@ -44,7 +44,7 @@ const index = () => {
             {list.map((item, key) => {
               return (
                 <p key={key} className={styles.email}>
-                  {item.type}: {item.name}， 联系方式:{' '}
+                  {item.type}， 联系方式:
                   <span style={{ color: '#3d86ef', cursor: 'pointer' }}>
                     {item.email}
                   </span>

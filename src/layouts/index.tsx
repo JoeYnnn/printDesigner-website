@@ -115,7 +115,7 @@ const App = () => {
                   onClick={() => onClick(3)}
                   className={`${selectKeys == '3' ? styles.hover : {}}`}
                 >
-                  应用场景
+                  案例
                 </div>
                 <div
                   onClick={() => onClick(4)}
