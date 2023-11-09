@@ -27,7 +27,7 @@ function getItem(label: any, key: any, icon?: any, children?: any, type?: any) {
 export default function HomePage() {
   const [selectedKeys, setSelectedKeys] = useState(['0-0']);
   const [openKeys, setOpenKeys] = useState(['0']);
-  const rootSubmenuKeys = ['0', '1', '3', '4', '5', '6', '8'];
+  const rootSubmenuKeys = ['0', '1', '2', '3', '4', '5', '6', '8'];
 
   const onOpenChange = (keys: any) => {
     const latestOpenKey = keys.find((key: any) => openKeys.indexOf(key) === -1);
