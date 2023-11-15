@@ -179,7 +179,7 @@ export default function HomePage(props: any) {
                   <Image
                     width={120}
                     height={120}
-                    src={require('../image/首页核心功能2.png')}
+                    src={require('../image/首页核心功能3.png')}
                     preview={false}
                   />
                 </div>
@@ -193,7 +193,7 @@ export default function HomePage(props: any) {
                   <Image
                     width={120}
                     height={120}
-                    src={require('../image/首页核心功能1.png')}
+                    src={require('../image/首页核心功能4.png')}
                     preview={false}
                   />
                 </div>
