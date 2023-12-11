@@ -105,225 +105,248 @@ const index = () => {
 
   const download = (type: any) => {
     const a = document.createElement('a');
+    let href = '';
     if (type == '1-0') {
-      a.href = require('../../public/线条.xml');
+      href = require('../../public/线条.xml');
       a.download = '线条.xml';
     } else if (type == '1-1') {
-      a.href = require('../../public/文本框.xml');
+      href = require('../../public/文本框.xml');
       a.download = '文本框.xml';
     } else if (type == '1-2') {
-      a.href = require('../../public/复选框.xml');
+      href = require('../../public/复选框.xml');
       a.download = '复选框.xml';
     } else if (type == '1-3') {
-      a.href = require('../../public/图片.xml');
+      href = require('../../public/图片.xml');
       a.download = '图片.xml';
     } else if (type == '1-4') {
-      a.href = require('../../public/面板.xml');
+      href = require('../../public/面板.xml');
       a.download = '面板.xml';
     } else if (type == '2-1') {
-      a.href = require('../../public/动态设置边框.xml');
+      href = require('../../public/动态设置边框.xml');
       a.download = '动态设置边框.xml';
     } else if (type == '2-2') {
-      a.href = require('../../public/表格合计.xml');
+      href = require('../../public/表格合计.xml');
       a.download = '表格合计.xml';
     } else if (type == '3-2') {
-      a.href = require('../../public/简单表格(横表&行板).xml');
+      href = require('../../public/简单表格(横表&行板).xml');
       a.download = '简单表格(横表&行板).xml';
     } else if (type == '3-3') {
-      a.href = require('../../public/简单表格(列表&列板).xml');
+      href = require('../../public/简单表格(列表&列板).xml');
       a.download = '简单表格(列表&列板).xml';
     } else if (type == '4-1') {
-      a.href = require('../../public/自动大小、最大行数、最大宽度.xml');
+      href = require('../../public/自动大小、最大行数、最大宽度.xml');
       a.download = '自动大小、最大行数、最大宽度.xml';
     } else if (type == '4-2') {
-      a.href = require('../../public/换行文本、页缝换行.xml');
+      href = require('../../public/换行文本、页缝换行.xml');
       a.download = '换行文本、页缝换行.xml';
     } else if (type == '5-2') {
-      a.href = require('../../public/每页打印.xml');
+      href = require('../../public/每页打印.xml');
       a.download = '每页打印.xml';
     } else if (type == '5-3') {
-      a.href = require('../../public/循环方向、最大水平、垂直打印设置.xml');
+      href = require('../../public/循环方向、最大水平、垂直打印设置.xml');
       a.download = '循环方向、最大水平、垂直打印设置.xml';
     } else if (type == '5-4') {
-      a.href = require('../../public/补齐空行.xml');
+      href = require('../../public/补齐空行.xml');
       a.download = '补齐空行.xml';
     } else if (type == '6-1') {
-      a.href = require('../../public/简单分组.xml');
+      href = require('../../public/简单分组.xml');
       a.download = '简单分组.xml';
     } else if (type == '6-2') {
-      a.href = require('../../public/多级分组.xml');
+      href = require('../../public/多级分组.xml');
       a.download = '多级分组.xml';
     } else if (type == '7') {
-      a.href = require('../../public/交叉报表.xml');
+      href = require('../../public/交叉报表.xml');
       a.download = '交叉报表.xml';
     } else if (type == '8') {
-      a.href = require('../../public/多页模板.xml');
+      href = require('../../public/多页模板.xml');
       a.download = '多页模板.xml';
     } else if (type == '9-1') {
-      a.href = require('../../public/续打实现.xml');
+      href = require('../../public/续打实现.xml');
       a.download = '续打实现.xml';
     } else if (type == '9-2') {
-      a.href = require('../../public/补打实现.xml');
+      href = require('../../public/补打实现.xml');
       a.download = '补打实现.xml';
     } else if (type == '9-3') {
-      a.href = require('../../public/套打实现.xml');
+      href = require('../../public/套打实现.xml');
       a.download = '套打实现.xml';
     } else if (type == '9-4') {
-      a.href = require('../../public/回调数据.xml');
+      href = require('../../public/回调数据.xml');
       a.download = '回调数据.xml';
     }
-
+    a.href = href;
     a.click();
     a.remove();
   };
 
   const downloadJSON = (type: any) => {
     const a = document.createElement('a');
+    let href = '';
     if (type == '1-0') {
-      a.href = require('../../public/线条.json');
+      href = require('../../public/线条.json');
       a.download = '线条.json';
     } else if (type == '1-1') {
-      a.href = require('../../public/文本框.json');
+      href = require('../../public/文本框.json');
       a.download = '文本框.json';
     } else if (type == '1-2') {
-      a.href = require('../../public/复选框.json');
+      href = require('../../public/复选框.json');
       a.download = '复选框.json';
     } else if (type == '1-3') {
-      a.href = require('../../public/图片.json');
+      href = require('../../public/图片.json');
       a.download = '图片.json';
     } else if (type == '1-4') {
-      a.href = require('../../public/面板.json');
+      href = require('../../public/面板.json');
       a.download = '面板.json';
     } else if (type == '2-1') {
-      a.href = require('../../public/动态设置边框.json');
+      href = require('../../public/动态设置边框.json');
       a.download = '动态设置边框.json';
     } else if (type == '2-2') {
-      a.href = require('../../public/表格合计.json');
+      href = require('../../public/表格合计.json');
       a.download = '表格合计.json';
     } else if (type == '3-2') {
-      a.href = require('../../public/简单表格(横表&行板).json');
+      href = require('../../public/简单表格(横表&行板).json');
       a.download = '简单表格(横表&行板).json';
     } else if (type == '3-3') {
-      a.href = require('../../public/简单表格(列表&列板).json');
+      href = require('../../public/简单表格(列表&列板).json');
       a.download = '简单表格(列表&列板).json';
     } else if (type == '4-1') {
-      a.href = require('../../public/自动大小、最大行数、最大宽度.json');
+      href = require('../../public/自动大小、最大行数、最大宽度.json');
       a.download = '自动大小、最大行数、最大宽度.json';
     } else if (type == '4-2') {
-      a.href = require('../../public/换行文本、页缝换行.json');
+      href = require('../../public/换行文本、页缝换行.json');
       a.download = '换行文本、页缝换行.json';
     } else if (type == '5-2') {
-      a.href = require('../../public/每页打印.json');
+      href = require('../../public/每页打印.json');
       a.download = '每页打印.json';
     } else if (type == '5-3') {
-      a.href = require('../../public/循环方向、最大水平、垂直打印设置.json');
+      href = require('../../public/循环方向、最大水平、垂直打印设置.json');
       a.download = '循环方向、最大水平、垂直打印设置.json';
     } else if (type == '5-4') {
-      a.href = require('../../public/补齐空行.json');
+      href = require('../../public/补齐空行.json');
       a.download = '补齐空行.json';
     } else if (type == '6-1') {
-      a.href = require('../../public/简单分组.json');
+      href = require('../../public/简单分组.json');
       a.download = '简单分组.json';
     } else if (type == '6-2') {
-      a.href = require('../../public/多级分组.json');
+      href = require('../../public/多级分组.json');
       a.download = '多级分组.json';
     } else if (type == '7') {
-      a.href = require('../../public/交叉报表.json');
+      href = require('../../public/交叉报表.json');
       a.download = '交叉报表.json';
     } else if (type == '8') {
-      a.href = require('../../public/多页模板.json');
+      href = require('../../public/多页模板.json');
       a.download = '多页模板.json';
     } else if (type == '9-1') {
-      a.href = require('../../public/续打实现.json');
+      href = require('../../public/续打实现.json');
       a.download = '续打实现.json';
     } else if (type == '9-2') {
-      a.href = require('../../public/补打实现.json');
+      href = require('../../public/补打实现.json');
       a.download = '补打实现.json';
     } else if (type == '9-3') {
-      a.href = require('../../public/套打实现.json');
+      href = require('../../public/套打实现.json');
       a.download = '套打实现.json';
     } else if (type == '9-4') {
-      a.href = require('../../public/回调数据.json');
+      href = require('../../public/回调数据.json');
       a.download = '回调数据.json';
     }
-
+    a.href = href;
     a.click();
     a.remove();
   };
 
+  const clearAllCookie = () => {
+    document.cookie
+      .split(';')
+      .forEach(
+        (cookie) =>
+          (document.cookie = cookie
+            .replace(/^ +/, '')
+            .replace(/=.*/, `=;expires=${new Date(0).toUTCString()};path=/`)),
+      );
+  };
+
   const useNow = (type: any) => {
     const a = document.createElement('a');
-
+    let href = '';
     if (type == '1-0') {
-      a.href =
+      href =
         'http://wxp.cdp.iwincloud.com:8091/printDesigner/front?soid=10&mode=local&code=100001';
     } else if (type == '1-1') {
-      a.href =
+      href =
         'http://wxp.cdp.iwincloud.com:8091/printDesigner/front?soid=10&mode=local&code=100002';
     } else if (type == '1-2') {
-      a.href =
+      href =
         'http://wxp.cdp.iwincloud.com:8091/printDesigner/front?soid=10&mode=local&code=100003';
     } else if (type == '1-3') {
-      a.href =
+      href =
         'http://wxp.cdp.iwincloud.com:8091/printDesigner/front?soid=10&mode=local&code=100004';
     } else if (type == '1-4') {
-      a.href =
+      href =
         'http://wxp.cdp.iwincloud.com:8091/printDesigner/front?soid=10&mode=local&code=100005';
     } else if (type == '2-1') {
-      a.href =
+      href =
         'http://wxp.cdp.iwincloud.com:8091/printDesigner/front?soid=10&mode=local&code=100006';
     } else if (type == '2-2') {
-      a.href =
+      href =
         'http://wxp.cdp.iwincloud.com:8091/printDesigner/front?soid=10&mode=local&code=100007';
     } else if (type == '3-2') {
-      a.href =
+      href =
         'http://wxp.cdp.iwincloud.com:8091/printDesigner/front?soid=10&mode=local&code=100008';
     } else if (type == '3-3') {
-      a.href =
+      href =
         'http://wxp.cdp.iwincloud.com:8091/printDesigner/front?soid=10&mode=local&code=100009';
     } else if (type == '4-1') {
-      a.href =
+      href =
         'http://wxp.cdp.iwincloud.com:8091/printDesigner/front?soid=10&mode=local&code=100010';
     } else if (type == '4-2') {
-      a.href =
+      href =
         'http://wxp.cdp.iwincloud.com:8091/printDesigner/front?soid=10&mode=local&code=100011';
     } else if (type == '5-2') {
-      a.href =
+      href =
         'http://wxp.cdp.iwincloud.com:8091/printDesigner/front?soid=10&mode=local&code=100012';
     } else if (type == '5-3') {
-      a.href =
+      href =
         'http://wxp.cdp.iwincloud.com:8091/printDesigner/front?soid=10&mode=local&code=100013';
     } else if (type == '5-4') {
-      a.href =
+      href =
         'http://wxp.cdp.iwincloud.com:8091/printDesigner/front?soid=10&mode=local&code=100014';
     } else if (type == '6-1') {
-      a.href =
+      href =
         'http://wxp.cdp.iwincloud.com:8091/printDesigner/front?soid=10&mode=local&code=100015';
     } else if (type == '6-2') {
-      a.href =
+      href =
         'http://wxp.cdp.iwincloud.com:8091/printDesigner/front?soid=10&mode=local&code=100016';
     } else if (type == '7') {
-      a.href =
+      href =
         'http://wxp.cdp.iwincloud.com:8091/printDesigner/front?soid=10&mode=local&code=100017';
     } else if (type == '8') {
-      a.href =
+      href =
         'http://wxp.cdp.iwincloud.com:8091/printDesigner/front?soid=10&mode=local&code=100018';
     } else if (type == '9-1') {
-      a.href =
+      href =
         'http://wxp.cdp.iwincloud.com:8091/printDesigner/front?soid=10&mode=local&code=100019';
     } else if (type == '9-2') {
-      a.href =
+      href =
         'http://wxp.cdp.iwincloud.com:8091/printDesigner/front?soid=10&mode=local&code=100020';
     } else if (type == '9-3') {
-      a.href =
+      href =
         'http://wxp.cdp.iwincloud.com:8091/printDesigner/front?soid=10&mode=local&code=100021';
     } else if (type == '9-4') {
-      a.href =
+      href =
         'http://wxp.cdp.iwincloud.com:8091/printDesigner/front?soid=10&mode=local&code=100022';
     }
 
-    a.target = '_blank';
-    a.click();
+    // a.target = '_blank';
+    // a.click();
+    const newWin: any = window.open(
+      href + '&ver=' + Math.random().toFixed(1),
+      'website',
+    );
+    newWin.onload = function () {
+      clearAllCookie();
+    };
+    localStorage.clear();
+    sessionStorage.clear();
+    // clearAllCookie();
   };
 
   return (

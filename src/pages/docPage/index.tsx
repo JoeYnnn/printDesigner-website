@@ -285,8 +285,11 @@ export default function HomePage() {
                   <div>
                     <h1>使用入门</h1>
                     <p>
-                      1.访问对应环境的交付平台:如172.16.7.59 则访问7.59交付平台,
-                      输入PMIS账号密码，点击"报表设计器"进入应用
+                      1.访问对应环境的交付平台:如
+                      <a href="http://wxp.cdp.iwincloud.com:8091/deliver/index.html#/home">
+                        http://wxp.cdp.iwincloud.com:8091/deliver/index.html#/home
+                      </a>
+                      , 输入PMIS账号密码，点击"报表设计器"进入应用
                     </p>
                     <Image
                       width={600}
