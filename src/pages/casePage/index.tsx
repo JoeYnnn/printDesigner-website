@@ -1446,7 +1446,7 @@ const index = () => {
                       <a onClick={() => downloadJSON('6-2')}>下载</a>
                     </p>
                   </div>
-                ) : selectedKeys[0] == '7' ? (
+                ) : selectedKeys[0] == '7-1' ? (
                   <div>
                     <h1>交叉报表</h1>
                     <p>1.案例效果</p>
@@ -1572,7 +1572,7 @@ const index = () => {
                       <a onClick={() => downloadJSON('7')}>下载</a>
                     </p>
                   </div>
-                ) : selectedKeys[0] == '8' ? (
+                ) : selectedKeys[0] == '8-1' ? (
                   <div>
                     <h1>多页模版</h1>
                     <p>1.案例效果</p>
