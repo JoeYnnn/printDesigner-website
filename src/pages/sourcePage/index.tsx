@@ -2,6 +2,10 @@ import { List, Typography } from 'antd';
 import styles from './index.less';
 let log = [
   {
+    label: '0.6.2-beta',
+    link: 'http://172.16.9.57:8081/#browse/browse:npm-local:pango-print/pango-print-0.6.2-beta.tgz',
+  },
+  {
     label: '0.6.1',
     link: 'http://172.16.9.57:8081/#browse/browse:npm-local:pango-print/pango-print-0.6.1.tgz',
   },

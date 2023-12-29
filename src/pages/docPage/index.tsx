@@ -292,16 +292,16 @@ export default function HomePage() {
                       , 输入PMIS账号密码，点击"报表设计器"进入应用
                     </p>
                     <Image
-                      width={600}
-                      height={200}
+                      width={900}
+                      height={400}
                       src={require('../image/入门1.png')}
                     ></Image>
                     <p>
                       2.web打印设计器如下图，选中对应的目录，点击工具栏新建新建打印设计模板
                     </p>
                     <Image
-                      width={300}
-                      height={200}
+                      width={900}
+                      height={600}
                       src={require('../image/入门2.png')}
                     ></Image>
                     <p>
@@ -310,15 +310,17 @@ export default function HomePage() {
                     <div className={styles.imageBox}>
                       <div style={{ marginRight: 24 }}>
                         <Image
-                          width={300}
-                          height={200}
+                          width={900}
+                          height={600}
                           src={require('../image/入门3.png')}
                         ></Image>
                       </div>
+                    </div>
+                    <div className={styles.imageBox}>
                       <div>
                         <Image
-                          width={300}
-                          height={200}
+                          width={900}
+                          height={600}
                           src={require('../image/入门4.png')}
                         ></Image>
                       </div>
@@ -327,8 +329,8 @@ export default function HomePage() {
                       4.画布分为页眉，正文，页脚，选中正文，页眉或页脚，从工具栏拖拽相应控件到画布:
                     </p>
                     <Image
-                      width={300}
-                      height={200}
+                      width={900}
+                      height={600}
                       src={require('../image/入门5.png')}
                     ></Image>
                     <p>
@@ -338,15 +340,15 @@ export default function HomePage() {
                       属性,如线条控件右侧属性区分区数设置为4则画布会展示如下效果:
                     </p>
                     <Image
-                      width={300}
-                      height={200}
+                      width={900}
+                      height={600}
                       src={require('../image/入门6.png')}
                     ></Image>
                     <p>6.点击工具栏保存，模板会保存到对应目录下。</p>
                     <p>7.点击预览，会将模板运行态预览出来:</p>
                     <Image
-                      width={300}
-                      height={200}
+                      width={900}
+                      height={600}
                       src={require('../image/入门7.png')}
                     ></Image>
                   </div>
@@ -479,8 +481,8 @@ export default function HomePage() {
                   <div>
                     <h1>控件拖拽</h1>
                     <Image
-                      width={300}
-                      height={200}
+                      width={900}
+                      height={600}
                       src={require('../image/控件拖拽.png')}
                     ></Image>
                     <p>红色框中的控件支持拖拽，目前支持11种控件的拖拽。</p>
@@ -496,8 +498,8 @@ export default function HomePage() {
                   <div>
                     <h1>撤销回退</h1>
                     <Image
-                      width={300}
-                      height={200}
+                      width={900}
+                      height={600}
                       src={require('../image/撤销回退.jpg')}
                     ></Image>
                     <p>针对用户最近十步的所有操作，支持撤回操作与重做操作。</p>
@@ -507,14 +509,14 @@ export default function HomePage() {
                   <div>
                     <h1>新增页面删除页面</h1>
                     <Image
-                      width={300}
-                      height={200}
+                      width={900}
+                      height={600}
                       src={require('../image/新增删除页面.jpg')}
                     ></Image>
                     <p></p>
                     <Image
-                      width={300}
-                      height={200}
+                      width={900}
+                      height={600}
                       src={require('../image/新增删除页面1.png')}
                     ></Image>
                     <p></p>
@@ -536,16 +538,16 @@ export default function HomePage() {
                       在左侧模板树选中对应目录后点击新建新建模板，新建时需输入模板名称，此名称对应左侧模板树展示名称及模板文件名称属性:
                     </p>
                     <Image
-                      width={300}
-                      height={200}
-                      src={require('../image/新建2.png')}
+                      width={900}
+                      height={500}
+                      src={require('../image/新建2.jpg')}
                     ></Image>
                     <p>
                       未选中左侧模板树目录而直接点新建按钮时会提示请选择模板存储目录:
                     </p>
                     <Image
-                      width={300}
-                      height={200}
+                      width={900}
+                      height={600}
                       src={require('../image/新建3.png')}
                     ></Image>
                     <p>2.文件:打开本地文件实现模板展示及画布预览</p>
@@ -558,8 +560,8 @@ export default function HomePage() {
                   <div>
                     <h1>模板预览</h1>
                     <Image
-                      width={300}
-                      height={200}
+                      width={900}
+                      height={600}
                       src={require('../image/模版预览1.jpg')}
                     ></Image>
                     <p>
@@ -586,8 +588,8 @@ export default function HomePage() {
                   <div>
                     <h1>置前置后</h1>
                     <Image
-                      width={300}
-                      height={200}
+                      width={900}
+                      height={600}
                       src={require('../image/置前置后.jpg')}
                     ></Image>
                     <p>置前置后功能是将画布内组件的垂直方向层级进行改动</p>
@@ -596,8 +598,8 @@ export default function HomePage() {
                   <div>
                     <h1>页面设置</h1>
                     <Image
-                      width={300}
-                      height={200}
+                      width={900}
+                      height={600}
                       src={require('../image/页面设置.jpg')}
                     ></Image>
                     <p>
@@ -638,16 +640,16 @@ export default function HomePage() {
                     <h1>数据集树相关</h1>
                     <p>数据集 分为 微服务数据集、JavaBean数据集和SQL数据集。</p>
                     <Image
-                      width={300}
-                      height={200}
+                      width={900}
+                      height={600}
                       src={require('../image/数据集1.png')}
                     ></Image>
                     <p>
                       <b>微服务数据集</b>
                     </p>
                     <Image
-                      width={300}
-                      height={200}
+                      width={900}
+                      height={600}
                       src={require('../image/数据集2.png')}
                     ></Image>
                     <p>
@@ -663,8 +665,8 @@ export default function HomePage() {
                       <b>JavaBean数据集</b>
                     </p>
                     <Image
-                      width={300}
-                      height={200}
+                      width={900}
+                      height={600}
                       src={require('../image/数据集3.png')}
                     ></Image>
                     <p>
@@ -693,8 +695,8 @@ export default function HomePage() {
                       <b>SQL数据集</b>
                     </p>
                     <Image
-                      width={300}
-                      height={200}
+                      width={900}
+                      height={600}
                       src={require('../image/数据集4.png')}
                     ></Image>
                     <p>
@@ -703,8 +705,8 @@ export default function HomePage() {
                       </span>
                     </p>
                     <Image
-                      width={300}
-                      height={200}
+                      width={900}
+                      height={500}
                       src={require('../image/数据集5.png')}
                     ></Image>
                     <p>
@@ -712,14 +714,14 @@ export default function HomePage() {
                       。如果要进行分组操作，交互如下图：
                     </p>
                     <Image
-                      width={300}
-                      height={200}
+                      width={900}
+                      height={600}
                       src={require('../image/数据集6.png')}
                     ></Image>
                     <p>分组字段和 排序字段是取上一步的propsList 组合而成的。</p>
                     <Image
-                      width={300}
-                      height={200}
+                      width={900}
+                      height={600}
                       src={require('../image/数据集7.png')}
                     ></Image>
                     <p>
@@ -729,8 +731,8 @@ export default function HomePage() {
                       </span>
                     </p>
                     <Image
-                      width={300}
-                      height={200}
+                      width={900}
+                      height={600}
                       src={require('../image/数据集8.png')}
                     ></Image>
                   </div>
