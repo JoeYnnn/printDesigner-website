@@ -1,15 +1,119 @@
-.sourcePage {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background: #f7f8fa;
+.indexContent {
+  height: calc(100vh - 64px);
 
-  .content {
-    margin-top: 20px;
-    width: 1200px;
-    padding: 0 16px;
+  :global(.ant-menu-light .ant-menu-item-selected) {
+    background: #eef2fd;
+    margin: 0;
+    width: 100%;
+    border-left: 4px solid #2d5afa !important;
+    border-radius: 0;
+  }
+  :global(.ant-menu-light .ant-menu-item) {
+    margin: 0;
+    width: 100%;
+    border-left: 4px solid transparent;
+    border-radius: 0;
+  }
+  :global(.ant-menu-inline .ant-menu-item) {
+    margin: 0;
+    width: 100%;
+    border-radius: 0;
+  }
+
+  .fixAnchor {
+    // visibility: hidden;
+    background: red;
+    height: 30vh;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+  }
+
+  .componentContent1 {
+    width: 100%;
+    height: calc(100vh - 84px);
     display: flex;
+    justify-content: center;
     background: #fff;
+    overflow: auto;
+
+    .content {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      position: relative;
+
+      .leftNav {
+        width: 215px;
+        height: calc(100vh - 110px);
+        overflow: auto;
+        background: #fff;
+        position: absolute;
+        padding-top: 18px;
+        top: 20px;
+        left: 15%;
+        z-index: 1;
+      }
+
+      .mainContent {
+        width: 1000px;
+        height: calc(100vh - 110px);
+        // overflow: auto;
+        padding-left: 12px;
+        margin-top: 20px;
+        left: calc(15% + 240px);
+        // position: relative;
+
+        & > div:first-child {
+          width: 1000px;
+          height: calc(100vh - 110px);
+          background-color: #fff;
+          padding-left: 32px;
+
+          h1 {
+            margin-top: 0;
+          }
+        }
+
+        .imageBox {
+          display: flex;
+          justify-content: start;
+        }
+
+        .contentList {
+          h1 {
+            font-size: 24px;
+            color: #2d5afa;
+          }
+          h3 {
+            color: rgba(0, 0, 0, 0.25);
+          }
+          p {
+            margin: 0;
+            font-size: 20px;
+            font-weight: bold;
+          }
+          ul {
+            list-style-type: disc;
+
+            li {
+              font-size: 16px;
+              a {
+                font-size: 18px;
+              }
+            }
+          }
+          ol {
+            li {
+              font-size: 16px;
+              a {
+                font-size: 18px;
+              }
+            }
+          }
+        }
+      }
+    }
   }
 }
