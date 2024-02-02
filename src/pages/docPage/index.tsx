@@ -12,6 +12,7 @@ import PanelComp from './panelComp';
 import TableComp from './tableComp';
 import RowComp from './rowComp';
 import PublicComp from './publicComp';
+import CompareWithFastReport from './CompareWithFastReport';
 const { Sider } = Layout;
 
 function getItem(label: any, key: any, icon?: any, children?: any, type?: any) {
@@ -39,7 +40,10 @@ export default function HomePage() {
   };
 
   const items = [
-    getItem('使用入门', '0', null, [getItem('使用入门', '0-0')]),
+    getItem('使用入门', '0', null, [
+      getItem('使用入门', '0-0'),
+      getItem('与FastReport对比', '0-1'),
+    ]),
     getItem('组件相关', '1', null, [
       getItem('线条', '1-0'),
       getItem('标签', '1-1'),
@@ -351,6 +355,12 @@ export default function HomePage() {
                       height={600}
                       src={require('../image/入门7.png')}
                     ></Image>
+                  </div>
+                ) : selectedKeys[0] == '0-1' ? (
+                  <div>
+                    <h1>与FastReport对比</h1>
+
+                    <CompareWithFastReport />
                   </div>
                 ) : selectedKeys[0] == '1-0' ? (
                   <div>
